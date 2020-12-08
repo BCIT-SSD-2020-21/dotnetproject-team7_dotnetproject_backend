@@ -7,7 +7,7 @@ namespace DotNetTeam7API.Data.MovieMigrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Genre",
+                name: "Genres",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -16,7 +16,7 @@ namespace DotNetTeam7API.Data.MovieMigrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Genre", x => x.Id);
+                    table.PrimaryKey("PK_Genres", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -42,7 +42,7 @@ namespace DotNetTeam7API.Data.MovieMigrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "MovieGenre",
+                name: "MovieGenres",
                 columns: table => new
                 {
                     MovieId = table.Column<int>(nullable: false),
@@ -50,34 +50,59 @@ namespace DotNetTeam7API.Data.MovieMigrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieGenre", x => new { x.MovieId, x.GenreId });
+                    table.PrimaryKey("PK_MovieGenres", x => new { x.MovieId, x.GenreId });
                     table.ForeignKey(
-                        name: "FK_MovieGenre_Genre_GenreId",
+                        name: "FK_MovieGenres_Genres_GenreId",
                         column: x => x.GenreId,
-                        principalTable: "Genre",
+                        principalTable: "Genres",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_MovieGenre_Movies_MovieId",
+                        name: "FK_MovieGenres_Movies_MovieId",
                         column: x => x.MovieId,
                         principalTable: "Movies",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Genres",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 18, "Drama" });
+
+            migrationBuilder.InsertData(
+                table: "Genres",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 10765, "Annimation" });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "id", "backdrop_path", "first_air_date", "name", "original_language", "original_name", "overview", "popularity", "poster_path", "vote_average", "vote_count" },
+                values: new object[] { 89641, "/mXouvrZbn8YpZMURGvw30QK8qfo.jpg", "2019-08-22", "Love Alarm", "ko", "좋아하면 울리는", "Love Alarm is an app that tells you if someone within a 10-meter radius has a crush on you. It quickly becomes a social phenomenon. While everyone talks about it and uses it to test their love and popularity, Jojo is one of the few people who have yet to download the app. However, she soon faces a love triangle situation between Sun-oh whom she starts to have feelings for, and Hye-young, who has had a huge crush on her.", 166.60499999999999, "/s87JyAWtRLLlmsYWXTED1l8henB.jpg", 8.4000000000000004, 577 });
+
+            migrationBuilder.InsertData(
+                table: "MovieGenres",
+                columns: new[] { "MovieId", "GenreId" },
+                values: new object[] { 89641, 18 });
+
+            migrationBuilder.InsertData(
+                table: "MovieGenres",
+                columns: new[] { "MovieId", "GenreId" },
+                values: new object[] { 89641, 10765 });
+
             migrationBuilder.CreateIndex(
-                name: "IX_MovieGenre_GenreId",
-                table: "MovieGenre",
+                name: "IX_MovieGenres_GenreId",
+                table: "MovieGenres",
                 column: "GenreId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MovieGenre");
+                name: "MovieGenres");
 
             migrationBuilder.DropTable(
-                name: "Genre");
+                name: "Genres");
 
             migrationBuilder.DropTable(
                 name: "Movies");
