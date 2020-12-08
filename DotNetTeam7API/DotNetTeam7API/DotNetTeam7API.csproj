@@ -17,5 +17,17 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettingsCopy - Copy %282%29.Development.json">
+      <DependentUpon>appsettingsCopy.Development.json</DependentUpon>
+    </Content>
+    <Content Update="appsettingsCopy - Copy - Copy.Development.json">
+      <DependentUpon>appsettingsCopy - Copy.Development.json</DependentUpon>
+    </Content>
+    <Content Update="appsettingsCopy - Copy.Development.json">
+      <DependentUpon>appsettingsCopy.Development.json</DependentUpon>
+    </Content>
+  </ItemGroup>
+
 
 </Project>
