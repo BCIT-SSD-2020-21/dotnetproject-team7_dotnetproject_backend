@@ -10,7 +10,7 @@ namespace DotNetTeam7API.Data
     public class MovieDbSeeder
     {
         // tQ: return type for async is Task
-        public static async Task SeedAsync(MovieDbSeeder db)
+        public static async Task SeedAsync(MovieDbContext db)
         {
             if (!await db.MovieGenres.AnyAsync())
             {
@@ -32,7 +32,10 @@ namespace DotNetTeam7API.Data
 
         static IEnumerable<Genre> GetPreconfiguredGenres()
         {
+            return new List<Genre>()
+            {
 
+            };
         }
     }
 }
