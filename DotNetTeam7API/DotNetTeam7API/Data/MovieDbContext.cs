@@ -14,7 +14,7 @@ namespace DotNetTeam7API.Data
         public MovieDbContext(DbContextOptions<MovieDbContext> options) : base(options) { }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
-        public DbSet<Genre> MovieGenres { get; set; }
+        public DbSet<MovieGenre> MovieGenres { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
