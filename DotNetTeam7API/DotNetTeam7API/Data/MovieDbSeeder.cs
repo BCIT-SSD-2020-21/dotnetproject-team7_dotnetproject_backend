@@ -24,6 +24,12 @@ namespace DotNetTeam7API.Data
                 await db.Movies.AddRangeAsync(GetPreconfiguredItems());
                 await db.SaveChangesAsync();
             }
+            if (!await db.MovieGenres.AnyAsync())
+            {
+                // tQ: add range of movie genres
+                await db.MovieGenres.AddRangeAsync(GetPreconfiguredMovieGenres());
+                await db.SaveChangesAsync();
+            }
         }
 
         static IEnumerable<Movie> GetPreconfiguredItems()
@@ -44,6 +50,7 @@ namespace DotNetTeam7API.Data
                 new Movie("/8bgggmXgNjIc0rlSKvB2JLTvQsi.jpg", "2014-07-11", 61738, "Hi! School - Love On", "ko", "하이스쿨 : 러브온", "High school may be tough, but Woo Hyun (Nam Woo Hyun) has a guardian angel looking over him — literally. Disguised as a naive high schooler, Lee Seul Bi (Kim Sae Ron) descends from the heavens to protect Woo Hyun's life, but discovers she's got a thing or two to learn about life as a teenager, including the pains of falling in love. Can this cherubic guardian protect the apple of her eye and also manage to survive high school?", 28.23, "/9XUMRNRxK89fWZ4DMtpdlJwKeNP.jpg", 7.8, 315),
                 new Movie("/tP1iwq4VzDiL1G9M6Vz57zWd5LH.jpg", "2020-02-22", 97219, "Hi Bye, Mama!", "ko", "하이바이, 마마!", "When the ghost of a woman gains a second chance at life for 49 days, she reappears in front of her remarried husband and young daughter.", 27.268, "/mc5nLj2EM480d6tlxKsj2GRfsDC.jpg", 8, 262),
                 new Movie("/8NK9un1DPUTgRzGtJHMvpdIB5Ay.jpg", "2020-10-17", 99048, "Start-Up", "ko", "스타트업", "Needing to make $90k to open her own business, Seo Dal Mi drops out of a university and takes up part-time work. She dreams of becoming someone like Steve Jobs. Nam Do San is the founder of Samsan Tech. He is excellent with mathematics. He started Samsan Tech two years ago, but the company is not doing well. Somehow, Nam Do San becomes Seo Dal Mi’s first love. They cheer each others start and growth.", 25.414, "/hxJQ3A2wtreuWDnVBbzzXI3YlOE.jpg", 8.1, 8),
+                new Movie("", "2015-01-07", 62266, "Kill Me, Heal Me", "ko", "킬미, 힐미", "Cha Do Hyun is a rich heir to a family company with one major problem. Due to suppressed childhood trauma, he suffers from dissociative identity disorder manifested in 7 unique personalities who are out of his control. In order to overcome this disorder in secret, he hires a first year medical resident to help him heal by killing off each personality one by one.", 25.02, "/dNH6NO0akHMIqbq5EC4qnCeeuC6.jpg", 8.6, 28),
                 new Movie("/mN5EK6CH9TmnIB5OBXHTtNBsfDL.jpg", "2005-12-14", 6074, "My Girl", "ko", "마이걸", "Gong Chan is the wealthy, unattached heir to a large company. Having lost both his parents, he is devoted to what remains of his family, particularly his ailing grandfather. After deciding to cut off his only daughter after disapproving of her marriage, the old man is plagued with guilt since the couple was killed soon after he lost touch. By chance, Gong Chan meets a woman who resembles his lost aunt and is inspired to use her to fulfill his grandfather's last wish. The woman, Yoo Rin is the daughter of a compulsive gambler and is constantly on the run, so when Gong Chan offers her this opportunity, she cannot afford to refuse. After Yoo Rin moves in with the family, Gong Chan finds himself drawn to her and a forbidden attraction springs up between them.", 24.828, "/72Su8fJNHMidt9wCcVWKkLJzHrS.jpg", 7.3, 12),
                 new Movie("/cCAEmVxhOI2vdxCLh9POAtqc2rr.jpg", "2006-05-15", 4734, "Jumong", "ko", "주몽", "Jumong examines the life of Jumong Taewang, founder of the kingdom of Goguryeo. Few details have been found in the historical record about Jumong, so much of the series is fictionalized. The fantastic elements surrounding the original Jumong legend have been replaced with events more grounded in reality.", 24.129, "/tJI1XZtiECE6gz5MXj883eFv35E.jpg", 8.5, 8),
                 new Movie("/brdHK7HwwGwl1Bk3f6T8rkmkBVY.jpg", "2015-05-15", 62669, "Orange Marmalade", "ko", "오렌지 마말레이드", "Despite a 200-year-old treaty between humans and vampires, both races still don't get along. Amidst the looming tension, Jung Jae Min, a posh yet kindhearted high school student, quickly falls for the mysterious new girl Baek Ma Ri. But can Ma Ri conceal her true vampire identity and give love an honest chance? If these star-crossed lovers can find the courage to make the leap, Jae Min and Ma Ri may just be the key to a final resolution between humans and vampires...", 22.115, "/4y59CKPFxdz51BN3K4SeeO5Ift0.jpg", 7.7, 9),
@@ -72,6 +79,53 @@ namespace DotNetTeam7API.Data
                 new Genre(10767, "Talk"),
                 new Genre(10768,"War & Politics"),
                 new Genre(37,"Western")
+            };
+        }
+
+        static IEnumerable<MovieGenre> GetPreconfiguredMovieGenres()
+        {
+            return new List<MovieGenre>()
+            {
+                new MovieGenre(89641 ,  18),
+                new MovieGenre(89641 ,  10765),
+                new MovieGenre(16420 ,  35),
+                new MovieGenre(16420 ,  18),
+                new MovieGenre(33238 ,  35),
+                new MovieGenre(33238 ,  10764),
+                new MovieGenre(96462 ,  18),
+                new MovieGenre(96462 ,  35),
+                new MovieGenre(65282 ,  10764),
+                new MovieGenre(93846 ,  18),
+                new MovieGenre(93846 ,  10765),
+                new MovieGenre(67018 ,  35),
+                new MovieGenre(67018 ,  18),
+                new MovieGenre(67018 ,  10765),
+                new MovieGenre(98827 ,  35),
+                new MovieGenre(70672 ,  10764),
+                new MovieGenre(70672 ,  35),
+                new MovieGenre(87527 ,  18),
+                new MovieGenre(67915 ,  18),
+                new MovieGenre(67915 ,  10765),
+                new MovieGenre(61738 ,  10765),
+                new MovieGenre(97219 ,  10765),
+                new MovieGenre(97219 ,  35),
+                new MovieGenre(97219 ,  18),
+                new MovieGenre(99048 ,  18),
+                new MovieGenre(99048 ,  35),
+                new MovieGenre(62266 ,  35),
+                new MovieGenre(62266 ,  18),
+                new MovieGenre(62266 ,  9648),
+                new MovieGenre(6074  ,  35),
+                new MovieGenre(6074  , 18),
+                new MovieGenre(4734  ,  18),
+                new MovieGenre(4734  , 10768),
+                new MovieGenre(62669 ,  14),
+                new MovieGenre(62669 ,  10749),
+                new MovieGenre(70593 ,  18),
+                new MovieGenre(70593 , 10759),
+                new MovieGenre(70593 ,  9648),
+                new MovieGenre(5092  ,  35),
+                new MovieGenre(5092  , 10764)
             };
         }
     }
