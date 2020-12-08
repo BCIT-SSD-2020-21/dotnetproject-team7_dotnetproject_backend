@@ -12,7 +12,7 @@ namespace DotNetTeam7API.Data
         // tQ: return type for async is Task
         public static async Task SeedAsync(MovieDbContext db)
         {
-            if (!await db.MovieGenres.AnyAsync())
+            if (!await db.Genres.AnyAsync())
             {
                 // tQ: add range of movie genres
                 await db.Genres.AddRangeAsync(GetPreconfiguredGenres());
