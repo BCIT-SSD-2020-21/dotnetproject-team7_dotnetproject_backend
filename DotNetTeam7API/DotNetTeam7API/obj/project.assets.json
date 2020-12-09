@@ -5721,19 +5721,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\toasty\\.nuget\\packages\\": {}
+    "C:\\Users\\owen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
+      "projectUniqueName": "C:\\Users\\owen\\Source\\Repos\\BCIT-SSD-2020-21\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
       "projectName": "DotNetTeam7API",
-      "projectPath": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
-      "packagesPath": "C:\\Users\\toasty\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\obj\\",
+      "projectPath": "C:\\Users\\owen\\Source\\Repos\\BCIT-SSD-2020-21\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
+      "packagesPath": "C:\\Users\\owen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\owen\\Source\\Repos\\BCIT-SSD-2020-21\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\toasty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\owen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5790,7 +5790,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
