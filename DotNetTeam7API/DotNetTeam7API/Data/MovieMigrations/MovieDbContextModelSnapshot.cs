@@ -21,9 +21,7 @@ namespace DotNetTeam7API.Data.MovieMigrations
             modelBuilder.Entity("DotNetTeam7API.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -36,9 +34,7 @@ namespace DotNetTeam7API.Data.MovieMigrations
             modelBuilder.Entity("DotNetTeam7API.Models.Movie", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Backdrop_path")
                         .HasColumnType("nvarchar(max)");

@@ -17,6 +17,7 @@ namespace DotNetTeam7API.Models
 
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         public string Name { get; set; }

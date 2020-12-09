@@ -10,8 +10,10 @@ namespace DotNetTeam7API.Models
     public class MovieGenre
     {
         [Key, Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MovieId { get; private set; }
         [Key, Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GenreId { get; private set; }
 
         // navigation properties
