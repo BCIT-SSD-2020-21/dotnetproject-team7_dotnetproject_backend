@@ -1,5 +1,6 @@
 ﻿using DotNetTeam7API.Interfaces;
 using DotNetTeam7API.Models;
+using DotNetTeam7API.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,12 @@ namespace DotNetTeam7API.Services
 
         public MovieIndexVM GetMoviesVM(int? genreId)
         {
+            // tQ: default - select all movies
             IQueryable<Movie> movies = _movieRepo.GetAll();
+
+            // tQ: add "WHERE" clause if typeId is given
+            if (genreId != null)
+                movies = movies.inclu
         }
     }
 }
