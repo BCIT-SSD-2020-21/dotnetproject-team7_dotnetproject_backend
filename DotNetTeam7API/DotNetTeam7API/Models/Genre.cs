@@ -10,6 +10,7 @@ namespace DotNetTeam7API.Models
     public class Genre
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; private set; }
         public string Name { get; private set; }
 
