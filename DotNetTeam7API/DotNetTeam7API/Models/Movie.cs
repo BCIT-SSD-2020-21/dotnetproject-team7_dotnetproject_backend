@@ -12,31 +12,31 @@ namespace DotNetTeam7API.Models
     public class Movie
     {
 
-        public string Backdrop_path { get; set; }
+        public string Backdrop_path { get; private set; }
 
-        public string First_air_date { get; set; }
+        public string First_air_date { get; private set; }
 
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        public int Id { get; private set; }
 
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
 
-        public string Original_language { get; set; }
+        public string Original_language { get; private set; }
 
-        public string Original_name { get; set; }
+        public string Original_name { get; private set; }
 
-        public string Overview { get; set; }
+        public string Overview { get; private set; }
 
-        public double Popularity { get; set; }
+        public double Popularity { get; private set; }
 
-        public string Poster_path { get; set; }
+        public string Poster_path { get; private set; }
 
-        public double Vote_average { get; set; }
+        public double Vote_average { get; private set; }
 
-        public int Vote_count { get; set; }
+        public int Vote_count { get; private set; }
 
         // navigation properties
         [JsonIgnore]
