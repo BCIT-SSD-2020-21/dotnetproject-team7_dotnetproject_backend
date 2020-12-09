@@ -30,10 +30,21 @@ namespace DotNetTeam7API.Controllers
                        .ThenInclude(g => g.Genre)
                        .ToList();
 
+                //  JMT ( 2020-12-09) remove the redundant nested movies and genres to avoid crash browser, which only allows 32 nested layers
+                foreach (var m in movies)
+                { 
+                    foreach ( var mg in m.MovieGenres)
+                    {
+                        mg.Genre.MovieGenres.Clear();
+                        mg.Movie = null; 
+                    }
+                }
+
                 if (!movies.Any())
                     return NoContent();
 
                 return Ok(movies);
+
             }
             catch (Exception e)
             {

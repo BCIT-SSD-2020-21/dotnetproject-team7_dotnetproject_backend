@@ -89,13 +89,13 @@ namespace DotNetTeam7API.Data.MovieMigrations
             modelBuilder.Entity("DotNetTeam7API.Models.MovieGenre", b =>
                 {
                     b.HasOne("DotNetTeam7API.Models.Genre", "Genre")
-                        .WithMany("MovieGenre")
+                        .WithMany("MovieGenres")
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DotNetTeam7API.Models.Movie", "Movie")
-                        .WithMany("MovieGenre")
+                        .WithMany("MovieGenres")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
