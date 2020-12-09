@@ -23,14 +23,13 @@ namespace DotNetTeam7API.Data
 
             modelBuilder.Entity<MovieGenre>()
                 .HasOne(cp => cp.Movie)
-                .WithMany(cp => cp.MovieGenre)
+                .WithMany(cp => cp.MovieGenres)
                 .HasForeignKey(fk => new { fk.MovieId });
 
             modelBuilder.Entity<MovieGenre>()
                     .HasOne(cp => cp.Genre)
-                    .WithMany(cp => cp.MovieGenre)
+                    .WithMany(cp => cp.MovieGenres)
                     .HasForeignKey(fk => new { fk.GenreId });
         }
-
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace DotNetTeam7API.Models
@@ -17,8 +18,10 @@ namespace DotNetTeam7API.Models
         public int GenreId { get; private set; }
 
         // navigation properties
-        public virtual Movie Movie { get; set; }
-        public virtual Genre Genre { get; set; }
+        [JsonIgnore]
+        public Movie Movie { get; set; }
+        [JsonIgnore]
+        public Genre Genre { get; set; }
 
         public MovieGenre(int movieId, int genreId)
         {

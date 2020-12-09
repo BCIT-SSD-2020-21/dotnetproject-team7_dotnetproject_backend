@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace DotNetTeam7API.Models
@@ -38,9 +39,10 @@ namespace DotNetTeam7API.Models
         public int Vote_count { get; set; }
 
         // navigation properties
-        public virtual ICollection<MovieGenre> MovieGenre { get; private set; }
+        [JsonIgnore]
+        public virtual ICollection<MovieGenre> MovieGenres { get; private set; }
 
-        // JMT: created a constructor, passed compile but failed on Add-Migration. Tried a few options, I have to 
+        // JMT ( 2020-12-09) : created a constructor, passed compile but failed on Add-Migration. Tried a few options, I have to 
         // follow the name convention we were not taught to use capital letter for property and camel case for passing parameter.
         // To avoid the super hassel, just discard the constructor as we might not use it.
 
