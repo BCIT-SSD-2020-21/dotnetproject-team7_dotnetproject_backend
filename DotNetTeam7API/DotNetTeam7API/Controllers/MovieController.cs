@@ -49,7 +49,7 @@ namespace DotNetTeam7API.Controllers
             {
                 var movie = _db.Movies.Include(m => m.MovieGenre)
                     .ThenInclude(g => g.Genre)
-                    .Where(m => m.id == id)
+                    .Where(m => m.Id == id)
                     .FirstOrDefault();
 
                 if (movie == null)
