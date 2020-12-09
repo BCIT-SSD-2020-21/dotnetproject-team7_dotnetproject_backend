@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Wzoi2moj3zF9Bn3DjR1k0fHUxkB6uwb2n2t4Yo3FfpF6Hm44ZhY8ceIPnJyUJWwdvS30e7EnDJHlRZp3ig1s6A==",
+  "dgSpecHash": "MKgqcWfMbV3lOVOp9IzKHIFr241xQH9MXrDyhrMc/6CLODALiAbmA0s9zV/ZN/I3CzDiKwJC2b0iwUG96Ffp9w==",
   "success": true,
   "projectFilePath": "C:\\Users\\owen\\Source\\Repos\\BCIT-SSD-2020-21\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\owen\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.10\\microsoft.aspnetcore.authentication.jwtbearer.3.1.10.nupkg.sha512",
     "C:\\Users\\owen\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.10\\microsoft.aspnetcore.cryptography.internal.3.1.10.nupkg.sha512",
     "C:\\Users\\owen\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.10\\microsoft.aspnetcore.cryptography.keyderivation.3.1.10.nupkg.sha512",
     "C:\\Users\\owen\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
