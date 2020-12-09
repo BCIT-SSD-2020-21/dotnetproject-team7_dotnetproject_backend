@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNetTeam7API.Interfaces
 {
-    public class IBaseRepository<T> where T : BaseEntity
+    public interface IBaseRepository<T> where T : BaseEntity
     {
         IQueryable<T> GetAll();
     }
