@@ -29,7 +29,7 @@ namespace DotNetTeam7API
         {
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ToDoConnection")));
 
-            services.AddControllers();
+            object p = services.AddControllers().AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

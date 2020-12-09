@@ -283,3 +283,4 @@ C:\Users\owen\Source\Repos\BCIT-SSD-2020-21\dotnetproject-team7_dotnetproject_ba
 C:\Users\owen\Source\Repos\BCIT-SSD-2020-21\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 C:\Users\owen\Source\Repos\BCIT-SSD-2020-21\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.RazorTargetAssemblyInfo.cs
 C:\Users\owen\Source\Repos\BCIT-SSD-2020-21\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.Views.pdb
+C:\Users\owen\Source\Repos\BCIT-SSD-2020-21\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
