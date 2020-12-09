@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetTeam7API.Data.MovieMigrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20201208083549_InitialMovieDbSchema")]
-    partial class InitialMovieDbSchema
+    [Migration("20201209014646_ResetDbAgain")]
+    partial class ResetDbAgain
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,56 +23,52 @@ namespace DotNetTeam7API.Data.MovieMigrations
             modelBuilder.Entity("DotNetTeam7API.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genre");
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("DotNetTeam7API.Models.Movie", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("backdrop_path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("first_air_date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("original_language")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("original_name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("overview")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("popularity")
-                        .HasColumnType("float");
-
-                    b.Property<string>("poster_path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("vote_average")
-                        .HasColumnType("float");
-
-                    b.Property<int>("vote_count")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
+                    b.Property<string>("Backdrop_path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("First_air_date")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Original_language")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Original_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Overview")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Popularity")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Poster_path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Vote_average")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Vote_count")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Movies");
                 });
@@ -89,7 +85,7 @@ namespace DotNetTeam7API.Data.MovieMigrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("MovieGenre");
+                    b.ToTable("MovieGenres");
                 });
 
             modelBuilder.Entity("DotNetTeam7API.Models.MovieGenre", b =>

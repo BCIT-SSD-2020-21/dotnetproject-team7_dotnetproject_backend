@@ -11,30 +11,31 @@ namespace DotNetTeam7API.Models
     public class Movie
     {
 
-        public string backdrop_path { get; set; }
+        public string Backdrop_path { get; set; }
 
-        public string first_air_date { get; set; }
+        public string First_air_date { get; set; }
 
 
         [Key]
-        public int id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
 
-        public string original_language { get; set; }
+        public string Original_language { get; set; }
 
-        public string original_name { get; set; }
+        public string Original_name { get; set; }
 
-        public string overview { get; set; }
+        public string Overview { get; set; }
 
-        public double popularity { get; set; }
+        public double Popularity { get; set; }
 
-        public string poster_path { get; set; }
+        public string Poster_path { get; set; }
 
-        public double vote_average { get; set; }
+        public double Vote_average { get; set; }
 
-        public int vote_count { get; set; }
+        public int Vote_count { get; set; }
 
         // navigation properties
         public virtual ICollection<MovieGenre> MovieGenre { get; private set; }
@@ -42,5 +43,31 @@ namespace DotNetTeam7API.Models
         // JMT: created a constructor, passed compile but failed on Add-Migration. Tried a few options, I have to 
         // follow the name convention we were not taught to use capital letter for property and camel case for passing parameter.
         // To avoid the super hassel, just discard the constructor as we might not use it.
+
+        // tQ: adding new constructor after touching base with JMT
+        public Movie (  string backdrop_path,
+                        string first_air_date,
+                        int id,
+                        string name,
+                        string original_language,
+                        string original_name,
+                        string overview,
+                        double popularity,
+                        string poster_path,
+                        double vote_average,
+                        int vote_count)
+        {
+            Backdrop_path = backdrop_path;
+            First_air_date = first_air_date;
+            Id = id;
+            Name = name;
+            Original_language = original_language;
+            Original_name = original_name;
+            Overview = overview;
+            Popularity = popularity;
+            Poster_path = poster_path;
+            Vote_average = vote_average;
+            Vote_count = vote_count;
+        }
     }
 }
