@@ -8,11 +8,8 @@ using System.Threading.Tasks;
 
 namespace DotNetTeam7API.Models
 {
-    public class Genre
+    public class Genre : BaseEntity
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; private set; }
         public string Name { get; private set; }
 
         // navigation properties
@@ -21,7 +18,6 @@ namespace DotNetTeam7API.Models
 
         public Genre(int id, string name)
         {
-            Id = id;
             Name = name;
         }
     }

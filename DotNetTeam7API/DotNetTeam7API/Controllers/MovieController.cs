@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotNetTeam7API.Data;
 using DotNetTeam7API.Models;
+using DotNetTeam7API.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,14 +29,14 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
-                MovieIndexVM = new MovieIndexVM() {
+                MovieIndex = new MovieIndexVM() {
                     _db.Movies.Include(m => m.MovieGenres)
                    .ThenInclude(g => g.Genre)
                     .ToList()
                 };
 
                 //  JMT ( 2020-12-09) remove the redundant nested movies and genres to avoid crash browser, which only allows 32 nested layers
-                foreach (var m in MovieIndexVM)
+                foreach (var m in MovieIndex)
                 { 
                     foreach ( var mg in m.MovieGenres)
                     {
@@ -44,10 +45,10 @@ namespace DotNetTeam7API.Controllers
                     }
                 }
 
-                if (!MovieIndexVM.Any())
+                if (!MovieIndex.Any())
                     return NoContent();
 
-                return Ok(MovieIndexVM);
+                return Ok(MovieIndex);
 
             }
             catch (Exception e)

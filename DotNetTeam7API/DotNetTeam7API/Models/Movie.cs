@@ -9,17 +9,12 @@ using System.Threading.Tasks;
 namespace DotNetTeam7API.Models
 {
 
-    public class Movie
+    public class Movie : BaseEntity
     {
 
         public string Backdrop_path { get; private set; }
 
         public string First_air_date { get; private set; }
-
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; private set; }
 
         public string Name { get; private set; }
 
@@ -49,7 +44,7 @@ namespace DotNetTeam7API.Models
         // tQ: adding new constructor after touching base with JMT
         public Movie (  string backdrop_path,
                         string first_air_date,
-                        int id,
+                        //int id,
                         string name,
                         string original_language,
                         string original_name,
@@ -61,7 +56,7 @@ namespace DotNetTeam7API.Models
         {
             Backdrop_path = backdrop_path;
             First_air_date = first_air_date;
-            Id = id;
+            //Id = id;
             Name = name;
             Original_language = original_language;
             Original_name = original_name;
