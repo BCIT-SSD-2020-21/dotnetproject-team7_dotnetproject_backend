@@ -21,17 +21,21 @@ namespace DotNetTeam7API.Controllers
             _db = db;
         }
 
+        public MovieIndexVM MovieIndex = new MovieIndexVM();
+
         [HttpGet]
         public ActionResult<IEnumerable<Movie>> GetAll()
         {
             try
             {
-                var movies = _db.Movies.Include(m => m.MovieGenres)
-                       .ThenInclude(g => g.Genre)
-                       .ToList();
+                MovieIndexVM = new MovieIndexVM() {
+                    _db.Movies.Include(m => m.MovieGenres)
+                   .ThenInclude(g => g.Genre)
+                    .ToList()
+                };
 
                 //  JMT ( 2020-12-09) remove the redundant nested movies and genres to avoid crash browser, which only allows 32 nested layers
-                foreach (var m in movies)
+                foreach (var m in MovieIndexVM)
                 { 
                     foreach ( var mg in m.MovieGenres)
                     {
@@ -40,10 +44,10 @@ namespace DotNetTeam7API.Controllers
                     }
                 }
 
-                if (!movies.Any())
+                if (!MovieIndexVM.Any())
                     return NoContent();
 
-                return Ok(movies);
+                return Ok(MovieIndexVM);
 
             }
             catch (Exception e)
@@ -58,15 +62,17 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
-                var movie = _db.Movies.Include(m => m.MovieGenres)
+                MovieIndexVM = new MovieIndexVM()
+                {   _db.Movies.Include(m => m.MovieGenres)
                     .ThenInclude(g => g.Genre)
                     .Where(m => m.Id == id)
                     .FirstOrDefault();
+                }
 
-                if (movie == null)
+                if (MovieIndexVM == null)
                     return NoContent();
 
-                return Ok(movie);
+                return Ok(MovieIndexVM);
             }
             catch (Exception e)
             {
