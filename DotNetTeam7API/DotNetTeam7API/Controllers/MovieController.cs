@@ -26,7 +26,7 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
-                var movies = _db.Movies.Include(m => m.MovieGenre)
+                var movies = _db.Movies.Include(m => m.MovieGenres)
                        .ThenInclude(g => g.Genre)
                        .ToList();
 
@@ -47,7 +47,7 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
-                var movie = _db.Movies.Include(m => m.MovieGenre)
+                var movie = _db.Movies.Include(m => m.MovieGenres)
                     .ThenInclude(g => g.Genre)
                     .Where(m => m.Id == id)
                     .FirstOrDefault();

@@ -15,7 +15,7 @@ namespace DotNetTeam7API.Models
         public string Name { get; private set; }
 
         // navigation properties
-        public virtual ICollection<MovieGenre> MovieGenre { get; private set; }
+        public virtual ICollection<MovieGenre> MovieGenres { get; private set; }
 
         public Genre(int id, string name)
         {

@@ -38,7 +38,7 @@ namespace DotNetTeam7API.Models
         public int Vote_count { get; set; }
 
         // navigation properties
-        public virtual ICollection<MovieGenre> MovieGenre { get; private set; }
+        public virtual ICollection<MovieGenre> MovieGenres { get; private set; }
 
         // JMT: created a constructor, passed compile but failed on Add-Migration. Tried a few options, I have to 
         // follow the name convention we were not taught to use capital letter for property and camel case for passing parameter.
