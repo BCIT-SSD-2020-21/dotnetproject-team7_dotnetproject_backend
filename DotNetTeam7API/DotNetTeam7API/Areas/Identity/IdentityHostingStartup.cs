@@ -17,7 +17,7 @@ namespace DotNetTeam7API.Areas.Identity
             builder.ConfigureServices((context, services) => {
                 services.AddDbContext<AuthContext>(options =>
                     options.UseSqlServer(
-                        context.Configuration.GetConnectionString("AuthContextConnection")));
+                        context.Configuration.GetConnectionString("ToDoConnection")));
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<AuthContext>();
