@@ -92,4 +92,3 @@ C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.dll
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.pdb
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.genruntimeconfig.cache
-C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.csprojAssemblyReference.cache

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DotNetTeam7API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class MovieController : ControllerBase
     {
@@ -21,29 +21,33 @@ namespace DotNetTeam7API.Controllers
             _db = db;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Movie>> GetAll()
+        [HttpGet(Name = "GetAll")]
+        public ActionResult<IEnumerable<Movie>> GetAll(int? genreId)
         {
             try
             {
-                var movies = _db.Movies.Include(m => m.MovieGenres)
-                       .ThenInclude(g => g.Genre)
-                       .ToList();
+                if (genreId == null)
+                {
+                    // All Movies
+                    var movies = _db.Movies.ToList();
+                    var genres = _db.Genres.ToList();
 
-                //  JMT ( 2020-12-09) remove the redundant nested movies and genres to avoid crash browser, which only allows 32 nested layers
-                foreach (var m in movies)
-                { 
-                    foreach ( var mg in m.MovieGenres)
-                    {
-                        mg.Genre.MovieGenres.Clear();
-                        mg.Movie = null; 
-                    }
+                    var ret = new { movies, genres };
+
+                    return Ok(ret);
+                }
+                else 
+                {
+                    // All Movies with genreid == genreId
+                    var movies = _db.Movies.Include(m => m.MovieGenres)
+                        .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
+
+                    var ret = new { movies };
+
+                    return Ok(ret);
                 }
 
-                if (!movies.Any())
-                    return NoContent();
 
-                return Ok(movies);
 
             }
             catch (Exception e)
@@ -58,6 +62,7 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
+                // movie detail
                 var movie = _db.Movies.Include(m => m.MovieGenres)
                     .ThenInclude(g => g.Genre)
                     .Where(m => m.Id == id)
