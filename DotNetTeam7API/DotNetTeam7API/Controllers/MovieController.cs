@@ -15,12 +15,6 @@ namespace DotNetTeam7API.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        private readonly MovieDbContext _db;
-
-        public MovieController(MovieDbContext db)
-        {
-            _db = db;
-        }
 
         public MovieIndexVM MovieIndex = new MovieIndexVM();
 
