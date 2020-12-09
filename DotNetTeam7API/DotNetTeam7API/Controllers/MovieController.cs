@@ -6,6 +6,7 @@ using DotNetTeam7API.Data;
 using DotNetTeam7API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNetTeam7API.Controllers
 {
@@ -25,11 +26,14 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
-                var items = _db.Movies.ToList();
-                if (!items.Any())
+                var movies = _db.Movies.Include(m => m.MovieGenre)
+                       .ThenInclude(g => g.Genre)
+                       .ToList();
+
+                if (!movies.Any())
                     return NoContent();
 
-                return Ok(items);
+                return Ok(movies);
             }
             catch (Exception e)
             {
@@ -43,11 +47,15 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
-                var item = _db.Movies.Where(t => t.id == id).FirstOrDefault();
-                if (item == null)
+                var movie = _db.Movies.Include(m => m.MovieGenre)
+                    .ThenInclude(g => g.Genre)
+                    .Where(m => m.id == id)
+                    .FirstOrDefault();
+
+                if (movie == null)
                     return NoContent();
 
-                return Ok(item);
+                return Ok(movie);
             }
             catch (Exception e)
             {
