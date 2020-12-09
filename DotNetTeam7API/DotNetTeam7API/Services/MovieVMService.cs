@@ -11,5 +11,7 @@ namespace DotNetTeam7API.Services
     {
         private readonly IBaseRepository<Movie> _movieRepo;
         private readonly IBaseRepository<Genre> _genreRepo;
+
+
     }
 }

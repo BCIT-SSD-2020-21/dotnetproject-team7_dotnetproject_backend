@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNetTeam7API.Interfaces
 {
-    interface IMovieVMService
+    public interface IMovieVMService
     {
         MovieIndexVM GetMoviesVM(int? typeId);
         //IEnumerable<SelectListItem> GetTypes();
