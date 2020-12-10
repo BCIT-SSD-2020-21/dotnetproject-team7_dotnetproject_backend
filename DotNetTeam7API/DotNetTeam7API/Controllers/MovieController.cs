@@ -34,6 +34,8 @@ namespace DotNetTeam7API.Controllers
 
         [HttpGet(Name = "GetAll")]
         public ActionResult GetAll(int? genreId)
+        [HttpGet]
+        public ActionResult<IEnumerable<Movie>> GetAll(int? genreId, string? search)
         {
             try
             {
@@ -47,13 +49,21 @@ namespace DotNetTeam7API.Controllers
 
                 //    var ret = new { movies, genres };
 
-                //    return Ok(ret);
-                //}
-                //else 
-                //{
-                //    // All Movies with genreid == genreId
-                //    var movies = _db.Movies.Include(m => m.MovieGenres)
-                //        .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
+                        return Ok(movies);
+                    }
+                    else 
+                    {
+                        // https://localhost:44367/movie?search=Jumong
+                        // https://localhost:44367/movie?search=founder of the kingdom of Goguryeo
+                        var movies = _db.Movies.Where(m => (m.Name.Contains(search) || m.Overview.Contains(search)));
+                        return Ok(movies);
+                    }
+                }
+                else if (genreId != null)
+                {
+                    // https://localhost:44367/movie?genreid=18 
+                    var movies = _db.Movies.Include(m => m.MovieGenres)
+                        .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
 
                 //    var ret = new { movies };
 
@@ -61,7 +71,10 @@ namespace DotNetTeam7API.Controllers
                 //}
 
 
+                    var ret = new { movies, genres };
 
+                    return Ok(ret);
+                }
             }
             catch (Exception e)
             {
@@ -95,3 +108,4 @@ namespace DotNetTeam7API.Controllers
         }
     }
 }
+
