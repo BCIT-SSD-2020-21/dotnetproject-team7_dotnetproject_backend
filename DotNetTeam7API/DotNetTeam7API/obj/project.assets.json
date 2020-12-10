@@ -5425,19 +5425,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tu_jm\\.nuget\\packages\\": {}
+    "C:\\Users\\toasty\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
+      "projectUniqueName": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
       "projectName": "DotNetTeam7API",
-      "projectPath": "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
-      "packagesPath": "C:\\Users\\tu_jm\\.nuget\\packages\\",
-      "outputPath": "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\obj\\",
+      "projectPath": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
+      "packagesPath": "C:\\Users\\toasty\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tu_jm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\toasty\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
