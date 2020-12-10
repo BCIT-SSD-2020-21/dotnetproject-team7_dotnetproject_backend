@@ -127,3 +127,4 @@ C:\Users\toasty\Documents\BCIT SSD\2501\B_DotNetEssentials\DayXX_NET_project\dot
 C:\Users\toasty\Documents\BCIT SSD\2501\B_DotNetEssentials\DayXX_NET_project\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.genruntimeconfig.cache
 C:\Users\toasty\Documents\BCIT SSD\2501\B_DotNetEssentials\DayXX_NET_project\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.csproj.CoreCompileInputs.cache
 C:\Users\toasty\Documents\BCIT SSD\2501\B_DotNetEssentials\DayXX_NET_project\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\toasty\Documents\BCIT SSD\2501\B_DotNetEssentials\DayXX_NET_project\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.csprojAssemblyReference.cache

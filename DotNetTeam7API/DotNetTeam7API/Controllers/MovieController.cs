@@ -71,15 +71,17 @@ namespace DotNetTeam7API.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Movie> GetById(int id)
+        public ActionResult GetById(int id)
         {
             try
             {
                 // movie detail
-                var movie = _db.Movies.Include(m => m.MovieGenres)
-                    .ThenInclude(g => g.Genre)
-                    .Where(m => m.Id == id)
-                    .FirstOrDefault();
+                //var movie = _db.Movies.Include(m => m.MovieGenres)
+                //    .ThenInclude(g => g.Genre)
+                //    .Where(m => m.Id == id)
+                //    .FirstOrDefault();
+
+                var movie = _movieService.GetById(id);
 
                 if (movie == null)
                     return NoContent();
