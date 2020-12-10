@@ -18,5 +18,12 @@ namespace DotNetTeam7API.Services
             _movieRepo = movieRepo;
             _genreRepo = genreRepo;
         }
+
+        public List<Movie> GetMovies(int? genreId)
+        {
+            IQueryable<Movie> movies = _movieRepo.GetAll();
+
+            if
+        }
     }
 }

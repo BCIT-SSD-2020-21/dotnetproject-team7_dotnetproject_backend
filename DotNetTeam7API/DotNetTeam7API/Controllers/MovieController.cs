@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetTeam7API.Data;
+using DotNetTeam7API.Interfaces;
 using DotNetTeam7API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,14 @@ namespace DotNetTeam7API.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
+        // tQ: now Index instantiates service
+        private readonly IMovieService _movieService;
+
+        public MovieController(IMovieService movieService)
+        {
+            _movieService = movieService;
+        }
+
         private readonly MovieDbContext _db;
 
         public MovieController(MovieDbContext db)
