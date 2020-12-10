@@ -32,6 +32,10 @@ C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\appsettingsCopy.Development.json
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\appsettingsCopy.json
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.KorflixApi - Web Deploy.json
+C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\KorflixApi - Web Deploy\mssql1.arm.json
+C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\KorflixApi - Web Deploy\profile.arm.json
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\DotNetTeam7API.exe
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\DotNetTeam7API.deps.json
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\bin\Debug\netcoreapp3.1\DotNetTeam7API.runtimeconfig.json
@@ -92,3 +96,4 @@ C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.dll
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.pdb
 C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.genruntimeconfig.cache
+C:\BCIT_SSD\dotnetproject-team7-dotnetbackend\dotnetproject-team7_dotnetproject_backend\DotNetTeam7API\DotNetTeam7API\obj\Debug\netcoreapp3.1\DotNetTeam7API.csprojAssemblyReference.cache

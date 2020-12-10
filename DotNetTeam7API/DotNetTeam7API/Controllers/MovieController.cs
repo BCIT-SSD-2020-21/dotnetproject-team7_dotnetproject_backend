@@ -21,24 +21,34 @@ namespace DotNetTeam7API.Controllers
             _db = db;
         }
 
-        [HttpGet(Name = "GetAll")]
-        public ActionResult<IEnumerable<Movie>> GetAll(int? genreId)
+        [HttpGet]
+        public ActionResult<IEnumerable<Movie>> GetAll(int? genreId, string? search)
         {
             try
             {
-                if (genreId == null)
+                if (search != null)
                 {
-                    // All Movies
-                    var movies = _db.Movies.ToList();
-                    var genres = _db.Genres.ToList();
+                    if (genreId != null)
+                    {
+                        // https://localhost:44367/movie?genreId=18&search=Jumong
+                        // https://localhost:44367/movie?genreId=18&search=founder of the kingdom of Goguryeo
+                        var movies = _db.Movies.Include(m => m.MovieGenres)
+                            .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId) 
+                            && (m.Name.Contains(search) || m.Overview.Contains(search)));
 
-                    var ret = new { movies, genres };
-
-                    return Ok(ret);
+                        return Ok(movies);
+                    }
+                    else 
+                    {
+                        // https://localhost:44367/movie?search=Jumong
+                        // https://localhost:44367/movie?search=founder of the kingdom of Goguryeo
+                        var movies = _db.Movies.Where(m => (m.Name.Contains(search) || m.Overview.Contains(search)));
+                        return Ok(movies);
+                    }
                 }
-                else 
+                else if (genreId != null)
                 {
-                    // All Movies with genreid == genreId
+                    // https://localhost:44367/movie?genreid=18 
                     var movies = _db.Movies.Include(m => m.MovieGenres)
                         .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
 
@@ -46,9 +56,16 @@ namespace DotNetTeam7API.Controllers
 
                     return Ok(ret);
                 }
+                else
+                {
+                    // https://localhost:44367/movie
+                    var movies = _db.Movies.ToList();
+                    var genres = _db.Genres.ToList();
 
+                    var ret = new { movies, genres };
 
-
+                    return Ok(ret);
+                }
             }
             catch (Exception e)
             {
@@ -80,3 +97,4 @@ namespace DotNetTeam7API.Controllers
         }
     }
 }
+
