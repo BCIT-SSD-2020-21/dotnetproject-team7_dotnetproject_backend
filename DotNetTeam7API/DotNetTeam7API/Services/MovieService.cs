@@ -19,11 +19,32 @@ namespace DotNetTeam7API.Services
             _genreRepo = genreRepo;
         }
 
-        public List<Movie> GetMovies(int? genreId)
+        public List<BaseEntity> GetMovies(int? genreId)
         {
-            IQueryable<Movie> movies = _movieRepo.GetAll();
+            var movies = _movieRepo.GetAll();
+            var genres = _genreRepo.GetAll();
 
-            if
+            var ret = new List<BaseEntity>();
+            if (genreId == null)
+            {
+                // All Movies
+                ret.AddRange(movies.ToList());
+                var genres_ret = genres.ToList();
+
+                ret.AddRange(genres_ret);
+
+            }
+            else
+            {
+                // All Movies with genreid == genreId
+                var movies_ret = movies
+                    .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
+
+                ret.AddRange(movies_ret);
+
+            }
+
+            return ret;
         }
     }
 }
