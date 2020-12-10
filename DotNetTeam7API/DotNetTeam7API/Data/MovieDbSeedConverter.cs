@@ -31,9 +31,8 @@ namespace DotNetTeam7API.Data
 
                     foreach(var res in apiObjects.results)
                     {
-                        movies.Add(new Movie());
-                            
-                            {
+                        movies.Add(                     
+                        new    {
                                 Backdrop_path = res.backdrop_path,
                                 First_air_date = res.first_air_date
                             }
