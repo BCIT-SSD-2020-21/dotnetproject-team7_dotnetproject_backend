@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotNetTeam7API.Data;
 using DotNetTeam7API.Interfaces;
+using DotNetTeam7API.Services;
 using DotNetTeam7API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,15 +25,15 @@ namespace DotNetTeam7API.Controllers
         }
 
         // tQ: commenting out for debug purposes
-        private readonly MovieDbContext _db;
+        //private readonly MovieDbContext _db;
 
-        public MovieController(MovieDbContext db)
-        {
-            _db = db;
-        }
+        //public MovieController(MovieDbContext db)
+        //{
+        //    _db = db;
+        //}
 
         [HttpGet(Name = "GetAll")]
-        public ActionResult<IEnumerable<Movie>> GetAll(int? genreId)
+        public ActionResult GetAll(int? genreId)
         {
             try
             {
@@ -69,26 +70,26 @@ namespace DotNetTeam7API.Controllers
 
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<Movie> GetById(int id)
-        {
-            try
-            {
-                // movie detail
-                var movie = _db.Movies.Include(m => m.MovieGenres)
-                    .ThenInclude(g => g.Genre)
-                    .Where(m => m.Id == id)
-                    .FirstOrDefault();
+        //[HttpGet("{id}")]
+        //public ActionResult<Movie> GetById(int id)
+        //{
+        //    try
+        //    {
+        //        // movie detail
+        //        var movie = _db.Movies.Include(m => m.MovieGenres)
+        //            .ThenInclude(g => g.Genre)
+        //            .Where(m => m.Id == id)
+        //            .FirstOrDefault();
 
-                if (movie == null)
-                    return NoContent();
+        //        if (movie == null)
+        //            return NoContent();
 
-                return Ok(movie);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
-        }
+        //        return Ok(movie);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return BadRequest(e);
+        //    }
+        //}
     }
 }

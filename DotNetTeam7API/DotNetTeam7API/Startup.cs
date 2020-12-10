@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetTeam7API.Data;
+using DotNetTeam7API.Interfaces;
+using DotNetTeam7API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +33,10 @@ namespace DotNetTeam7API
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MovieConnection")));
 
 
-
+            // tQ: adding interface through scoped service
+            //    interface first
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 {
