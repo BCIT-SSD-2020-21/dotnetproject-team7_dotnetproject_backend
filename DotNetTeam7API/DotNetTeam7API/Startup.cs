@@ -30,8 +30,18 @@ namespace DotNetTeam7API
         {
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MovieConnection")));
 
-
-
+            // tQ: adding CORS here
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    });
+            });
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 {
@@ -52,7 +62,7 @@ namespace DotNetTeam7API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("AllowAll");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

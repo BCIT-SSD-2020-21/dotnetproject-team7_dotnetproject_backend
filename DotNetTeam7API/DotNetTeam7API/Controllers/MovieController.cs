@@ -69,7 +69,7 @@ namespace DotNetTeam7API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest();
+                return BadRequest(e);
             }
 
         }
@@ -92,7 +92,7 @@ namespace DotNetTeam7API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest();
+                return BadRequest(e);
             }
         }
     }
