@@ -23,6 +23,7 @@ namespace DotNetTeam7API.Controllers
             _movieService = movieService;
         }
 
+        // tQ: commenting out for debug purposes
         private readonly MovieDbContext _db;
 
         public MovieController(MovieDbContext db)
@@ -35,33 +36,35 @@ namespace DotNetTeam7API.Controllers
         {
             try
             {
-                if (genreId == null)
-                {
-                    // All Movies
-                    var movies = _db.Movies.ToList();
-                    var genres = _db.Genres.ToList();
+                var ret = _movieService.GetMovies(genreId);
+                return Ok(ret);
+                //if (genreId == null)
+                //{
+                //    // All Movies
+                //    var movies = _db.Movies.ToList();
+                //    var genres = _db.Genres.ToList();
 
-                    var ret = new { movies, genres };
+                //    var ret = new { movies, genres };
 
-                    return Ok(ret);
-                }
-                else 
-                {
-                    // All Movies with genreid == genreId
-                    var movies = _db.Movies.Include(m => m.MovieGenres)
-                        .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
+                //    return Ok(ret);
+                //}
+                //else 
+                //{
+                //    // All Movies with genreid == genreId
+                //    var movies = _db.Movies.Include(m => m.MovieGenres)
+                //        .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
 
-                    var ret = new { movies };
+                //    var ret = new { movies };
 
-                    return Ok(ret);
-                }
+                //    return Ok(ret);
+                //}
 
 
 
             }
             catch (Exception e)
             {
-                return BadRequest();
+                return BadRequest(e);
             }
 
         }
@@ -84,7 +87,7 @@ namespace DotNetTeam7API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest();
+                return BadRequest(e);
             }
         }
     }
