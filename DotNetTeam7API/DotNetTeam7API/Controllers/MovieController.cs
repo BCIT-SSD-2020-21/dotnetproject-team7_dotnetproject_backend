@@ -70,26 +70,26 @@ namespace DotNetTeam7API.Controllers
 
         }
 
-        //[HttpGet("{id}")]
-        //public ActionResult<Movie> GetById(int id)
-        //{
-        //    try
-        //    {
-        //        // movie detail
-        //        var movie = _db.Movies.Include(m => m.MovieGenres)
-        //            .ThenInclude(g => g.Genre)
-        //            .Where(m => m.Id == id)
-        //            .FirstOrDefault();
+        [HttpGet("{id}")]
+        public ActionResult<Movie> GetById(int id)
+        {
+            try
+            {
+                // movie detail
+                var movie = _db.Movies.Include(m => m.MovieGenres)
+                    .ThenInclude(g => g.Genre)
+                    .Where(m => m.Id == id)
+                    .FirstOrDefault();
 
-        //        if (movie == null)
-        //            return NoContent();
+                if (movie == null)
+                    return NoContent();
 
-        //        return Ok(movie);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return BadRequest(e);
-        //    }
-        //}
+                return Ok(movie);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
     }
 }

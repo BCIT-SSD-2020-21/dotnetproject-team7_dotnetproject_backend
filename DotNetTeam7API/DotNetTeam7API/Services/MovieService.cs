@@ -44,5 +44,10 @@ namespace DotNetTeam7API.Services
 
             return ret;
         }
+
+        public Movie GetById(int id)
+        {
+            //return "TBD";
+        }
     }
 }
