@@ -45,15 +45,14 @@ namespace DotNetTeam7API.Services
             return ret;
         }
 
-        public List<BaseEntity> GetById(int movieId)
+        public Movie GetById(int movieId)
         {
-            var movies_ret = new List<BaseEntity>();
             //.Include(m => m.MovieGenres)
             //        .ThenInclude(g => g.Genre)
             //        .Where(m => m.Id == id)
             //        .FirstOrDefault();
-            movies_ret.Add(_movieRepo.GetAll().Where(m => m.Id == movieId).FirstOrDefault());
-            movies_ret.Add(_movieRepo.GetAll().Where(m => m.Id == movieId).FirstOrDefault());
+            var movie_ret = _movieRepo.GetAll().Where(m => m.Id == movieId).FirstOrDefault();
+            movie_ret.MovieGenres = 
             return movies_ret;
         }
     }
