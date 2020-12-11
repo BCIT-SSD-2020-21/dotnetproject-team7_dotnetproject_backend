@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetTeam7API.Data;
+using DotNetTeam7API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,14 +23,14 @@ namespace DotNetTeam7API.Controllers
 
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> GetAll()
+        public ActionResult GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(_db.MovieUsers.ToList());
         }
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string GetAvgByMovieId(int id)
         {
             return "value";
         }
