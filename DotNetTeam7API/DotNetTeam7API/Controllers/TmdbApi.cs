@@ -9,8 +9,6 @@ using System.IO;
 using Newtonsoft.Json;
 using demo.MVC.Class;
 using System.Text;
-using DotNetTeam7API.Models;
-using static DotNetTeam7API.Class.HelperClass;
 
 namespace DotNetTeam7API.Controllers
 {
@@ -18,8 +16,6 @@ namespace DotNetTeam7API.Controllers
     [ApiController]
     public class TmdbApi : ControllerBase
     {
-        public object ViewBag { get; private set; }
-
         // GET
         public ActionResult Index(string peopleName, int? page)
         {
@@ -29,11 +25,6 @@ namespace DotNetTeam7API.Controllers
             Models.TheMovieDb theMovieDb = new Models.TheMovieDb();
             theMovieDb.searchText = peopleName;
             return View(theMovieDb);
-        }
-
-        private ActionResult View(TheMovieDb theMovieDb)
-        {
-            throw new NotImplementedException();
         }
 
         [HttpPost]
