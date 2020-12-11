@@ -37,8 +37,16 @@ namespace DotNetTeam7API.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Create([FromBody] MovieUser movieUser)
         {
+            if (movieUser.UserId == null 
+                || movieUser.UserId == "")
+            {
+                return BadRequest();
+            }
+            _db.MovieUsers.Add(movieUser);
+            _db.SaveChanges();
+            return new ObjectResult(movieUser);
         }
 
         // PUT api/<ValuesController>/5
