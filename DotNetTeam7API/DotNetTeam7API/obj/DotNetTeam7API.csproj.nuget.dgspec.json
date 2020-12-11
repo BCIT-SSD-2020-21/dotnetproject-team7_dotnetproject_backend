@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj": {}
+    "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj": {
+    "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
+        "projectUniqueName": "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
         "projectName": "DotNetTeam7API",
-        "projectPath": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
-        "packagesPath": "C:\\Users\\toasty\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\toasty\\Documents\\BCIT SSD\\2501\\B_DotNetEssentials\\DayXX_NET_project\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\obj\\",
+        "projectPath": "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\DotNetTeam7API.csproj",
+        "packagesPath": "C:\\Users\\tu_jm\\.nuget\\packages\\",
+        "outputPath": "C:\\BCIT_SSD\\dotnetproject-team7-dotnetbackend\\dotnetproject-team7_dotnetproject_backend\\DotNetTeam7API\\DotNetTeam7API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\toasty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tu_jm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,9 +38,21 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.10, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
@@ -63,6 +75,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [

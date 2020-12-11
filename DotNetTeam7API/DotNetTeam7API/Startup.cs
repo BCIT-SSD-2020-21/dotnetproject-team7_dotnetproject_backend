@@ -48,6 +48,9 @@ namespace DotNetTeam7API
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 });
 
+            // JwtBearer Authentication: Add Token Generation to Login
+            services.AddControllers().AddNewtonsoftJson();
+
 
         }
 
