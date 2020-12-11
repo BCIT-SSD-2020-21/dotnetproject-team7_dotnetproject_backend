@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,5 +19,8 @@ namespace DotNetTeam7API.Models
         public int Rating { get; private set; }
         public string Comment { get; private set; }
         public bool Favourite { get; private set; }
+
+        public virtual IdentityUser User { get; private set; }
+        public virtual Movie Movie { get; private set; }
     }
 }

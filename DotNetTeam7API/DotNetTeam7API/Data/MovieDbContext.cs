@@ -30,6 +30,15 @@ namespace DotNetTeam7API.Data
                     .HasOne(cp => cp.Genre)
                     .WithMany(cp => cp.MovieGenres)
                     .HasForeignKey(fk => new { fk.GenreId });
+
+            // tQ: MovieUser setup
+            modelBuilder.Entity<MovieUser>()
+                .HasKey(mu => new { mu.MovieId, mu.UserId });
+
+            modelBuilder.Entity<MovieUser>()
+                .HasOne(mu => mu.Movie)
+                .WithMany(u => u.U)
+                .HasForeignKey(fk => new { fk.MovieId });
         }
     }
 }
