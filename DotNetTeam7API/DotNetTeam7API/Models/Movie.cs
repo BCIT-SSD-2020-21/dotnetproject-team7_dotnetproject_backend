@@ -41,7 +41,7 @@ namespace DotNetTeam7API.Models
         // navigation properties
         [JsonIgnore]
         public virtual ICollection<MovieGenre> MovieGenres { get; private set; }
-        public virtual List<int> MovieRatings { get; private set; }
+        public virtual ICollection<MovieUser> MovieUsers { get; private set; }
 
         // JMT ( 2020-12-09) : created a constructor, passed compile but failed on Add-Migration. Tried a few options, I have to 
         // follow the name convention we were not taught to use capital letter for property and camel case for passing parameter.

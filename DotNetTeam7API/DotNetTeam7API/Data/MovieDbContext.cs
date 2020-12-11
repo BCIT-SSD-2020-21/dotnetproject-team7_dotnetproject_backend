@@ -37,7 +37,7 @@ namespace DotNetTeam7API.Data
 
             modelBuilder.Entity<MovieUser>()
                 .HasOne(mu => mu.Movie)
-                .WithMany(u => u.U)
+                .WithMany(m => m.MovieUsers)
                 .HasForeignKey(fk => new { fk.MovieId });
         }
     }
