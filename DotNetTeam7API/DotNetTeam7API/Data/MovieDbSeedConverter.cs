@@ -3,7 +3,9 @@ using DotNetTeam7API.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,33 +15,66 @@ namespace DotNetTeam7API.Data
     {
         private static readonly HttpClient client = new HttpClient();
 
-        public static List<Movie> movies = new List<Movie>();
-        public static List<MovieGenre> genres = new List<MovieGenre>();
+        public static List<Movie> Movies = new List<Movie>();
+        public static List<MovieGenre> MovieGenres = new List<MovieGenre>();
+        const int PAGES = 100;
 
         public static async Task Convert()
         {
-            movies.Clear();
-            genres.Clear();
+            Movies.Clear();
+            MovieGenres.Clear();
 
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/discover/tv?api_key=4d50e231ebab0b714167607ce53b71f1&language=en-US&with_original_language=ko"))
+            int page = 1;
+
+            try
+            { 
+                using (var httpClient = new HttpClient())
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-
-                    Root apiObjects = JsonConvert.DeserializeObject<Root>(apiResponse);
-
-                    foreach(var res in apiObjects.results)
+                    while(page < PAGES)
                     {
-                        movies.Add(                     
-                        new    {
-                                Backdrop_path = res.backdrop_path,
-                                First_air_date = res.first_air_date
+                        using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/discover/tv?api_key=4d50e231ebab0b714167607ce53b71f1&language=en-US&with_original_language=ko&page=" + page))
+                        {
+
+                            if (!response.StatusCode.Equals(HttpStatusCode.OK))
+                                break;
+
+                            string apiResponse = await response.Content.ReadAsStringAsync();
+
+                            Root apiObjects = JsonConvert.DeserializeObject<Root>(apiResponse);
+
+                            foreach (var m in apiObjects.results)
+                            {
+                                Movies.Add(
+                                    new Movie(
+                                    m.backdrop_path,
+                                    m.first_air_date,
+                                    m.id,
+                                    m.name,
+                                    m.original_language,
+                                    m.original_name,
+                                    m.overview,
+                                    m.popularity,
+                                    m.poster_path,
+                                    m.vote_average,
+                                    m.vote_count
+                                    )
+                                );
+
+                                foreach (var g in m.genre_ids)
+                                {
+                                    MovieGenres.Add(new MovieGenre(m.id, g));
+                                }
                             }
-                        );  
+                        }
+                        ++page;
                     }
                 }
             }
+            catch (IOException ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
