@@ -17,7 +17,7 @@ namespace DotNetTeam7API.Data
 
         public static List<Movie> Movies = new List<Movie>();
         public static List<MovieGenre> MovieGenres = new List<MovieGenre>();
-        const int PAGES = 100;
+        const int PAGES = 2;
 
         public static async Task Convert()
         {
@@ -30,7 +30,7 @@ namespace DotNetTeam7API.Data
             { 
                 using (var httpClient = new HttpClient())
                 {
-                    while(page < PAGES)
+                    while(page <= PAGES)
                     {
                         using (var response = await httpClient.GetAsync("https://api.themoviedb.org/3/discover/tv?api_key=4d50e231ebab0b714167607ce53b71f1&language=en-US&with_original_language=ko&page=" + page))
                         {
@@ -63,6 +63,7 @@ namespace DotNetTeam7API.Data
                                 foreach (var g in m.genre_ids)
                                 {
                                     MovieGenres.Add(new MovieGenre(m.id, g));
+                                    System.Diagnostics.Debug.WriteLine($@"some text {m.id}  ---  {g}");
                                 }
                             }
                         }
