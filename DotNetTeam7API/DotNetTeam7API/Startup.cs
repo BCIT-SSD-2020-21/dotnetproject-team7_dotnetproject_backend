@@ -32,16 +32,26 @@ namespace DotNetTeam7API
         {
             services.AddDbContext<MovieDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MovieConnection")));
 
-
-            // tQ: adding interface through scoped service
-            //    interface first
-            services.AddScoped<IMovieService, MovieService>();
-            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            // tQ: adding CORS here
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    });
+            });
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 });
+
+            // JwtBearer Authentication: Add Token Generation to Login
+            services.AddControllers().AddNewtonsoftJson();
 
 
         }
@@ -57,7 +67,7 @@ namespace DotNetTeam7API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("AllowAll");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
