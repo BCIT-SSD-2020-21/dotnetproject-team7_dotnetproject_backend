@@ -63,7 +63,7 @@ namespace DotNetTeam7API.Data
                                 foreach (var g in m.genre_ids)
                                 {
                                     MovieGenres.Add(new MovieGenre(m.id, g));
-                                    System.Diagnostics.Debug.WriteLine($@"some text {m.id}  ---  {g}");
+                                    System.Diagnostics.Debug.WriteLine($@"new Genre({m.id},{g}),");
                                 }
                             }
                         }
