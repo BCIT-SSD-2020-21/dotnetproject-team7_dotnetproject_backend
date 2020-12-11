@@ -15,6 +15,7 @@ namespace DotNetTeam7API.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<MovieGenre> MovieGenres { get; set; }
+        public DbSet<MovieUser> MovieUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
