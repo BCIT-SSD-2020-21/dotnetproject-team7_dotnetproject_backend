@@ -46,7 +46,7 @@ namespace DotNetTeam7API
             });
 
             // tQ: adding interface through scoped service
-            //    interface first
+            //    interface first 
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
