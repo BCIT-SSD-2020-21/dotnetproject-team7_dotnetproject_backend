@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetTeam7API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("ratings/[controller]")]
     [ApiController]
     public class RatingController : ControllerBase
     {
