@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DotNetTeam7API.Data;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,6 +13,13 @@ namespace DotNetTeam7API.Controllers
     [ApiController]
     public class RatingController : ControllerBase
     {
+        private readonly MovieDbContext _db;
+
+        public RatingController(MovieDbContext db)
+        {
+            _db = db;
+        }
+
         // GET: api/<ValuesController>
         [HttpGet]
         public IEnumerable<string> Get()
