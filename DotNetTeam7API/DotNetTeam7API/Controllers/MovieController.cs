@@ -33,11 +33,11 @@ namespace DotNetTeam7API.Controllers
         //}
 
         [HttpGet(Name = "GetAll")]
-        public ActionResult GetAll(int? genreId, string? search)
+        public ActionResult GetAll(int? genreId, string searchTerm)
         {
             try
             {
-                var ret = _movieService.GetMovies(genreId);
+                var ret = _movieService.GetMovies(genreId, searchTerm);
                 return Ok(ret);
             }
             catch (Exception e)

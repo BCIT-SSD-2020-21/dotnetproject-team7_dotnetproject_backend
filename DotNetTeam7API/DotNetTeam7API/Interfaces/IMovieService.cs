@@ -8,7 +8,7 @@ namespace DotNetTeam7API.Interfaces
 {
     public interface IMovieService
     {
-        List<BaseEntity> GetMovies(int? genreId);
+        List<BaseEntity> GetMovies(int? genreId, string searchTerm);
         Movie GetById(int movieId);
     }
 }
