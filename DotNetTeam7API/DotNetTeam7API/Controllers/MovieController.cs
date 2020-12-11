@@ -32,12 +32,12 @@ namespace DotNetTeam7API.Controllers
         //    _db = db;
         //}
 
-        [HttpGet(Name = "GetAll")]
-        public ActionResult GetAll(int? genreId, string searchTerm)
+        [HttpGet]
+        public ActionResult GetAll(int? genreId, string search)
         {
             try
             {
-                var ret = _movieService.GetMovies(genreId, searchTerm);
+                var ret = _movieService.GetMovies(genreId, search);
                 return Ok(ret);
             }
             catch (Exception e)
