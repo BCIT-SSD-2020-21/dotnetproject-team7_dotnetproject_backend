@@ -2,7 +2,7 @@
 
 namespace DotNetTeam7API.Data.MovieMigrations
 {
-    public partial class InitialMovieDbSchema : Migration
+    public partial class BaseEntitySetup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

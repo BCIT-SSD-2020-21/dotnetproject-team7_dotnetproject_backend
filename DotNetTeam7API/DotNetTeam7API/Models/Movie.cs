@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace DotNetTeam7API.Models
 {
 
-    public class Movie
+    public class Movie : BaseEntity
     {
 
         public string Backdrop_path { get; set; }
@@ -17,9 +17,9 @@ namespace DotNetTeam7API.Models
         public string First_air_date { get; set; }
 
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id { get; set; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        //public int Id { get; set; }
 
         public string Name { get; set; }
 

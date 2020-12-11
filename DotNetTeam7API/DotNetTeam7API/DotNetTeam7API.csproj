@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>b1346875-44cf-46ff-b2b2-dab7c7865647</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +9,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Data\MovieMigrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.10" />
