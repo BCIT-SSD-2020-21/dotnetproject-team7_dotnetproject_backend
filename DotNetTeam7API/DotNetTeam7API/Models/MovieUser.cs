@@ -18,7 +18,7 @@ namespace DotNetTeam7API.Models
         public string UserId { get; private set; }
         public int Rating { get; private set; }
         public string Review { get; private set; }
-        public bool Fav { get; private set; }
+        public bool? Fav { get; private set; }
 
         public virtual IdentityUser User { get; private set; }
         public virtual Movie Movie { get; private set; }
