@@ -28,26 +28,27 @@ namespace DotNetTeam7API.Services
             {
                 if (genreId != null)
                 {
-                    // All Movies
-                    ret.AddRange(movies.ToList());
-                    var genres_ret = genres.ToList();
-
-                    ret.AddRange(genres_ret);
-
+                    ret.AddRange(
+                        movies.Include(m => m.MovieGenres)
+                        .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId)
+                        && (m.Name.Contains(searchTerm) || m.Overview.Contains(searchTerm))));
                 }
                 else
                 {
-                    // All Movies with genreid == genreId
-                    var movies_ret = movies
-                        .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId));
-
-                    ret.AddRange(movies_ret);
-
+                    ret.AddRange(
+                        movies.Where(m => (m.Name.Contains(searchTerm) || m.Overview.Contains(searchTerm))));
                 }
+            }
+            else if (genreId != null)
+            {
+                ret.AddRange(
+                    movies.Include(m => m.MovieGenres)
+                    .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId)));
             }
             else
             {
-
+                ret.AddRange(movies);
+                ret.AddRange(genres);
             }
             return ret;
         }
