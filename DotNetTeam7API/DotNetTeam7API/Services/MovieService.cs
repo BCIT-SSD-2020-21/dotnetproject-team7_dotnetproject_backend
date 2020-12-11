@@ -1,5 +1,6 @@
 ﻿using DotNetTeam7API.Interfaces;
 using DotNetTeam7API.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -51,9 +52,13 @@ namespace DotNetTeam7API.Services
             //        .ThenInclude(g => g.Genre)
             //        .Where(m => m.Id == id)
             //        .FirstOrDefault();
-            var movie_ret = _movieRepo.GetAll().Where(m => m.Id == movieId).FirstOrDefault();
-            movie_ret.MovieGenres = 
-            return movies_ret;
+            var movie_ret = _movieRepo
+                .GetAll()
+                .Include(m => m.MovieGenres)
+                .ThenInclude(mg => mg.Genre)
+                .Where(m => m.Id == movieId)
+                .FirstOrDefault();
+            return movie_ret;
         }
     }
 }
