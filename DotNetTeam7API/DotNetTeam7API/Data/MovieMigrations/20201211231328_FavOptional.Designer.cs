@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetTeam7API.Data.MovieMigrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20201211230422_FavOptional")]
+    [Migration("20201211231328_FavOptional")]
     partial class FavOptional
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

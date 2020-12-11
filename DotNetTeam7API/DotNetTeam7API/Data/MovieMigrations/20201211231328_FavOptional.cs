@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DotNetTeam7API.Data.MovieMigrations
 {
-    public partial class RequireRating : Migration
+    public partial class FavOptional : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -97,7 +97,7 @@ namespace DotNetTeam7API.Data.MovieMigrations
                     UserId = table.Column<string>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
                     Review = table.Column<string>(nullable: true),
-                    Fav = table.Column<bool>(nullable: false)
+                    Fav = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {
