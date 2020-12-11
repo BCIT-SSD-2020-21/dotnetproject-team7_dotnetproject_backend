@@ -17,10 +17,25 @@ namespace DotNetTeam7API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string UserId { get; private set; }
         public int Rating { get; private set; }
-        public string Comment { get; private set; }
-        public bool Favourite { get; private set; }
+        public string Review { get; private set; }
+        public bool Fav { get; private set; }
 
         public virtual IdentityUser User { get; private set; }
         public virtual Movie Movie { get; private set; }
+
+        public MovieUser (
+            int movieId,
+            string userId,
+            int rating//, tQ: rest is yet to be implemented
+            //string review,
+            //bool fav
+            )
+        {
+            MovieId = movieId;
+            UserId = userId;
+            Rating = rating;
+            //string review,
+            //bool fav
+        }
     }
 }

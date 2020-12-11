@@ -45,20 +45,9 @@ namespace DotNetTeam7API.Controllers
                 return BadRequest();
             }
             _db.MovieUsers.Add(movieUser);
+            // tQ: to do - update rating field in Movie table
             _db.SaveChanges();
             return new ObjectResult(movieUser);
-        }
-
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
