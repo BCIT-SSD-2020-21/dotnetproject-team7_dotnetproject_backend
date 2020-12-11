@@ -24,7 +24,7 @@ namespace DotNetTeam7API.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
         private IConfiguration _config;
-        private IServiceProvider _serviceProvider;
+        private IServiceProvider _serviceProvider; 
 
         public AuthController(SignInManager<IdentityUser> signInManager,
         UserManager<IdentityUser> userManager,
