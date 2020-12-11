@@ -45,6 +45,11 @@ namespace DotNetTeam7API
                     });
             });
 
+            // tQ: adding interface through scoped service
+            //    interface first
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
             services.AddControllers().AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -52,7 +57,6 @@ namespace DotNetTeam7API
 
             // JwtBearer Authentication: Add Token Generation to Login
             services.AddControllers().AddNewtonsoftJson();
-
 
         }
 
