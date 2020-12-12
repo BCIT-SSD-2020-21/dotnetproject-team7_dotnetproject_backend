@@ -17,7 +17,7 @@ namespace DotNetTeam7API.Data
 
         public static List<Movie> Movies = new List<Movie>();
         public static List<MovieGenre> MovieGenres = new List<MovieGenre>();
-        const int PAGES = 25;
+        const int PAGES = 40;
 
         public static async Task Convert()
         {
