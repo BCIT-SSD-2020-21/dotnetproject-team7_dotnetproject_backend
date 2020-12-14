@@ -12,6 +12,13 @@ namespace DotNetTeam7API.Data
         // tQ: return type for async is Task
         public static async Task SeedAsync(MovieDbContext db)
         {
+
+            db.Database.ExecuteSqlRaw("DELETE FROM [MovieGenres]");
+            db.Database.ExecuteSqlRaw("DELETE FROM [Genres]");
+            db.Database.ExecuteSqlRaw("DELETE FROM [Movies]");
+
+            await db.SaveChangesAsync();
+
             if (!await db.Genres.AnyAsync())
             {
                 // tQ: add range of movie genres
