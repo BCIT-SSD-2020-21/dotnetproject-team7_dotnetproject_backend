@@ -15,6 +15,7 @@ namespace DotNetTeam7API.Data
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<MovieGenre> MovieGenres { get; set; }
+        public DbSet<MovieUser> MovieUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +31,15 @@ namespace DotNetTeam7API.Data
                     .HasOne(cp => cp.Genre)
                     .WithMany(cp => cp.MovieGenres)
                     .HasForeignKey(fk => new { fk.GenreId });
+
+            // tQ: MovieUser setup
+            modelBuilder.Entity<MovieUser>()
+                .HasKey(mu => new { mu.MovieUserId, mu.MovieId });
+
+            modelBuilder.Entity<MovieUser>()
+                .HasOne(mu => mu.Movie)
+                .WithMany(m => m.MovieUsers)
+                .HasForeignKey(fk => new { fk.MovieId });
         }
     }
 }

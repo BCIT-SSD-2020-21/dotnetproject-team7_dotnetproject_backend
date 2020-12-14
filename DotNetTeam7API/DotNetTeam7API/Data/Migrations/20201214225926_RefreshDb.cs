@@ -2,7 +2,7 @@
 
 namespace DotNetTeam7API.Data.Migrations
 {
-    public partial class InitialMovieSchema : Migration
+    public partial class RefreshDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,16 +63,46 @@ namespace DotNetTeam7API.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "MovieUsers",
+                columns: table => new
+                {
+                    MovieUserId = table.Column<int>(nullable: false),
+                    MovieId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: false),
+                    Rating = table.Column<int>(nullable: false),
+                    Review = table.Column<string>(nullable: true),
+                    Fav = table.Column<bool>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MovieUsers", x => new { x.MovieUserId, x.MovieId });
+                    table.ForeignKey(
+                        name: "FK_MovieUsers_Movies_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_MovieGenres_GenreId",
                 table: "MovieGenres",
                 column: "GenreId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MovieUsers_MovieId",
+                table: "MovieUsers",
+                column: "MovieId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "MovieGenres");
+
+            migrationBuilder.DropTable(
+                name: "MovieUsers");
 
             migrationBuilder.DropTable(
                 name: "Genres");
