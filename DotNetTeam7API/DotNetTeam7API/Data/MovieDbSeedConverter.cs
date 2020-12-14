@@ -17,7 +17,7 @@ namespace DotNetTeam7API.Data
 
         public static List<Movie> Movies = new List<Movie>();
         public static List<MovieGenre> MovieGenres = new List<MovieGenre>();
-        const int PAGES = 40;
+        const int PAGES = 1000;
 
         public static async Task Convert()
         {
@@ -25,39 +25,6 @@ namespace DotNetTeam7API.Data
             MovieGenres.Clear();
 
             int page = 1;
-
-            ////////////////test////////////////////////////////////
-            SortedSet<int> testGenre = new SortedSet<int>();
-            int [] testGenreArray = {
-                28,
-                12,
-                14,
-                36,
-                27,
-                10402,
-                9648,
-                10749,
-                878,
-                10770,
-                53,
-                10752,
-                37,
-                10759,
-                16,
-                35,
-                80,
-                99,
-                18,
-                10751,
-                10762,
-                10763,
-                10764,
-                10765,
-                10766,
-                10767,
-                10768 };
-            SortedSet<int> testGENRE = new SortedSet<int>(testGenreArray);
-            ////////////////end test////////////////////////////////////
 
             try
             { 
@@ -98,15 +65,7 @@ namespace DotNetTeam7API.Data
                                 foreach (var g in m.genre_ids)
                                 {
                                     set.Add(g);
-                                    testGenre.Add(g);
                                 }
-
-                                ////////////////test////////////////////////////////////
-                                if (m.genre_ids.Count != set.Count)
-                                {
-                                    System.Diagnostics.Debug.WriteLine($@"find duplicated genre id");
-                                }
-                                ////////////////end test////////////////////////////////////
 
                                 foreach (var g in set)
                                 {
@@ -124,16 +83,6 @@ namespace DotNetTeam7API.Data
             {
                 //MessageBox.Show(ex.Message);
             }
-
-            ////////////////test////////////////////////////////////
-            foreach (var t in testGenre)
-            {
-                if (testGENRE.Contains(t) == null)
-                {
-                    System.Diagnostics.Debug.WriteLine($@"could not find genreId in the default genre array");
-                }
-            }
-            ////////////////end-test////////////////////////////////////
         }
     }
 }
