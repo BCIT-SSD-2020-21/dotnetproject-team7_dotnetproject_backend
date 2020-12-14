@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DotNetTeam7API.Data.MovieMigrations
+namespace DotNetTeam7API.Data.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20201211231328_FavOptional")]
-    partial class FavOptional
+    [Migration("20201214223237_RefreshDb")]
+    partial class RefreshDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,11 +91,11 @@ namespace DotNetTeam7API.Data.MovieMigrations
 
             modelBuilder.Entity("DotNetTeam7API.Models.MovieUser", b =>
                 {
-                    b.Property<int>("MovieId")
+                    b.Property<int>("MovieUserId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("Fav")
                         .HasColumnType("bit");
@@ -106,7 +106,13 @@ namespace DotNetTeam7API.Data.MovieMigrations
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MovieId", "UserId");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MovieUserId", "MovieId");
+
+                    b.HasIndex("MovieId");
 
                     b.HasIndex("UserId");
 

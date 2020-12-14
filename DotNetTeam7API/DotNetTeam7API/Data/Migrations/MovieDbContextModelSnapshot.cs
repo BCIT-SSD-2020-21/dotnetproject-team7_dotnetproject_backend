@@ -89,11 +89,11 @@ namespace DotNetTeam7API.Data.Migrations
 
             modelBuilder.Entity("DotNetTeam7API.Models.MovieUser", b =>
                 {
-                    b.Property<int>("MovieId")
+                    b.Property<int>("MovieUserId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
 
                     b.Property<bool?>("Fav")
                         .HasColumnType("bit");
@@ -104,7 +104,13 @@ namespace DotNetTeam7API.Data.Migrations
                     b.Property<string>("Review")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MovieId", "UserId");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MovieUserId", "MovieId");
+
+                    b.HasIndex("MovieId");
 
                     b.HasIndex("UserId");
 

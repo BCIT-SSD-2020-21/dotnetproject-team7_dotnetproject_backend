@@ -11,16 +11,20 @@ namespace DotNetTeam7API.Models
     public class MovieUser
     {
         [Key, Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int MovieId { get; private set; }
+        public int MovieUserId { get; set; }
+
         [Key, Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MovieId { get; private set; }
+
+        [Required]
         public string UserId { get; private set; }
+
         public int Rating { get; private set; }
         public string Review { get; private set; }
         public bool? Fav { get; private set; }
 
-        public virtual IdentityUser User { get; private set; }
+        //public virtual IdentityUser User { get; private set; }
         public virtual Movie Movie { get; private set; }
 
         public MovieUser (
