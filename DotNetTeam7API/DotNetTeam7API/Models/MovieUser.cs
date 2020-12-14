@@ -10,11 +10,11 @@ namespace DotNetTeam7API.Models
 {
     public class MovieUser
     {
-        [Key, Column(Order = 0)]
+        [Key]
         public int MovieUserId { get; set; }
 
-        [Key, Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required]//[Key, Column(Order = 1)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MovieId { get; private set; }
 
         [Required]
