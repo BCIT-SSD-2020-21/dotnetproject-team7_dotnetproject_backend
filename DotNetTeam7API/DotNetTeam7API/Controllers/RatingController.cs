@@ -40,7 +40,7 @@ namespace DotNetTeam7API.Controllers
                 .Where(m => m.MovieId == id).ToList();
             if (records.Count > 0)
             {
-                var avg = records.Select(mu => mu).Average(mu => mu.Rating);
+                var avg = Math.Round(records.Select(mu => mu).Average(mu => mu.Rating),1);
                 return Ok(avg.ToString());
             }
             else
