@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetTeam7API.Data.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20201214225926_RefreshDb")]
+    [Migration("20201215181214_RefreshDb")]
     partial class RefreshDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
