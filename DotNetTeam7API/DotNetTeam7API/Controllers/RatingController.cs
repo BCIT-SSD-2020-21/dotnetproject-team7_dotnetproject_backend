@@ -65,7 +65,7 @@ namespace DotNetTeam7API.Controllers
             var user = _auDb.Users
                                 .Where(a => a.Id == movieUser.UserId)
                                 .FirstOrDefault();
-            if (movie == null)
+            if (user == null)
             {
                 return BadRequest();
             }
