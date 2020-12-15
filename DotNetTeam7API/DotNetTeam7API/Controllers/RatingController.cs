@@ -30,9 +30,20 @@ namespace DotNetTeam7API.Controllers
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public string GetAvgByMovieId(int id)
+        public IActionResult GetAvgByMovieId(int id)
         {
-            return "value";
+            var records = _db.MovieUsers
+                .Select(mu => mu)
+                .Where(m => m.MovieId == id).ToList();
+            if (records.Count > 0)
+            {
+                var avg = records.Select(mu => mu).Average(mu => mu.Rating);
+                return Ok(avg.ToString());
+            }
+            else
+            {
+                return BadRequest("Movie not found in ratings table");
+            }
         }
 
         // POST api/<ValuesController>
