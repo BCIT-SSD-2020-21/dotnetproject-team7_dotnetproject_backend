@@ -33,8 +33,8 @@ namespace DotNetTeam7API.Data
                     .HasForeignKey(fk => new { fk.GenreId });
 
             // tQ: MovieUser setup
-            //modelBuilder.Entity<MovieUser>()
-            //    .HasKey(mu => new { mu.Id, mu.MovieId });
+            modelBuilder.Entity<MovieUser>()
+                .HasKey(mu => new { mu.MovieUserId });
 
             //modelBuilder.Entity<MovieUser>()
             //    .HasOne(mu => mu.Movie)
