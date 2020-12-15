@@ -4,14 +4,16 @@ using DotNetTeam7API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DotNetTeam7API.Data.Migrations
+namespace DotNetTeam7API.Data.MovieMigrations
 {
     [DbContext(typeof(MovieDbContext))]
-    partial class MovieDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201215203516_InitMovieUser")]
+    partial class InitMovieUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,13 +92,15 @@ namespace DotNetTeam7API.Data.Migrations
             modelBuilder.Entity("DotNetTeam7API.Models.MovieUser", b =>
                 {
                     b.Property<int>("MovieUserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool?>("Fav")
                         .HasColumnType("bit");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -108,7 +112,7 @@ namespace DotNetTeam7API.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MovieUserId", "MovieId");
+                    b.HasKey("MovieUserId");
 
                     b.HasIndex("MovieId");
 

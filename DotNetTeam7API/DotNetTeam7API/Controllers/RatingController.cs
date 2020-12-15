@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DotNetTeam7API.Data;
 using DotNetTeam7API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,10 +16,12 @@ namespace DotNetTeam7API.Controllers
     public class RatingController : ControllerBase
     {
         private readonly MovieDbContext _db;
+        private readonly AuthContext _auDb;
 
-        public RatingController(MovieDbContext db)
+        public RatingController(MovieDbContext db, AuthContext auDb)
         {
             _db = db;
+            _auDb = auDb;
         }
 
         // GET: api/<ValuesController>
@@ -39,15 +42,53 @@ namespace DotNetTeam7API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] MovieUser movieUser)
         {
-            if (movieUser.UserId == null 
-                || movieUser.UserId == "")
+            // check null
+            if (movieUser == null || String.IsNullOrEmpty(movieUser.UserId))
             {
                 return BadRequest();
             }
-            _db.MovieUsers.Add(movieUser);
-            // tQ: to do - update rating field in Movie table
+
+            // check null
+            if (!(new List<int> { 1, 2, 3, 4, 5 }).Contains(movieUser.Rating) )
+            {
+                return BadRequest();
+            }
+
+            // validate movie id
+            var movie = _db.Movies.Where(m => m.Id == movieUser.MovieId).FirstOrDefault();
+            if (movie == null)
+            {
+                return BadRequest();
+            }
+
+            // validate use id
+            var user = _auDb.Users
+                                .Where(a => a.Id == movieUser.UserId)
+                                .FirstOrDefault();
+            if (movie == null)
+            {
+                return BadRequest();
+            }
+
+            var movieuser = _db.MovieUsers
+                          .Where(mu => mu.MovieId == movieUser.MovieId && mu.UserId == movieUser.UserId)
+                                .FirstOrDefault();
+
+            if (movieuser == null)
+            {
+                // add movie-user
+                _db.MovieUsers.Add(movieUser);               
+            }
+            else 
+            {
+                // update movie-user
+                movieuser.Rating = movieUser.Rating;
+            }
+
             _db.SaveChanges();
-            return new ObjectResult(movieUser);
+
+            return Ok(movieUser);
+
         }
     }
 }
