@@ -45,7 +45,6 @@ namespace DotNetTeam7API.Controllers
                 return BadRequest();
             }
             _db.MovieUsers.Add(movieUser);
-            // tQ: to do - update rating field in Movie table
             _db.SaveChanges();
             return new ObjectResult(movieUser);
         }
