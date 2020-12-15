@@ -34,7 +34,7 @@ namespace DotNetTeam7API.Data
 
             // tQ: MovieUser setup
             modelBuilder.Entity<MovieUser>()
-                .HasKey(mu => new { mu.MovieUserId, mu.MovieId });
+                .HasKey(mu => new { mu.MovieUserId });
 
             modelBuilder.Entity<MovieUser>()
                 .HasOne(mu => mu.Movie)

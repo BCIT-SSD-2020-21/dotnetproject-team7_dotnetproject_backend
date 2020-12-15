@@ -38,9 +38,5 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\MovieMigrations\" />
-  </ItemGroup>
-
 
 </Project>
