@@ -36,10 +36,10 @@ namespace DotNetTeam7API.Data
             modelBuilder.Entity<MovieUser>()
                 .HasKey(mu => new { mu.MovieUserId });
 
-            modelBuilder.Entity<MovieUser>()
-                .HasOne(mu => mu.Movie)
-                .WithMany(m => m.MovieUsers)
-                .HasForeignKey(fk => new { fk.MovieId });
+            //modelBuilder.Entity<MovieUser>()
+            //    .HasOne(mu => mu.Movie)
+            //    .WithMany(m => m.MovieUsers)
+            //    .HasForeignKey(fk => new { fk.MovieId });
         }
     }
 }

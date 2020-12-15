@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetTeam7API.Data.MovieMigrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20201215203516_InitMovieUser")]
-    partial class InitMovieUser
+    [Migration("20201215223321_RefreshMovieDb")]
+    partial class RefreshMovieDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

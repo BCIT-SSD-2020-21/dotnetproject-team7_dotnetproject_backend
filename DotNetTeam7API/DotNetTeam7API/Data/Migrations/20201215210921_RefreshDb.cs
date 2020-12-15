@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DotNetTeam7API.Data.MovieMigrations
+namespace DotNetTeam7API.Data.Migrations
 {
-    public partial class InitMovieUser : Migration
+    public partial class RefreshDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

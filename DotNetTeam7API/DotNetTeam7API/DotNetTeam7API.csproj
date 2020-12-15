@@ -38,5 +38,10 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Data\MovieMigrations\" />
+  </ItemGroup>
+
 
 </Project>
