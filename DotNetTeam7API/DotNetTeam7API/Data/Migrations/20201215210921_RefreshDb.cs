@@ -67,7 +67,8 @@ namespace DotNetTeam7API.Data.Migrations
                 name: "MovieUsers",
                 columns: table => new
                 {
-                    MovieUserId = table.Column<int>(nullable: false),
+                    MovieUserId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     MovieId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
@@ -76,7 +77,7 @@ namespace DotNetTeam7API.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MovieUsers", x => new { x.MovieUserId, x.MovieId });
+                    table.PrimaryKey("PK_MovieUsers", x => x.MovieUserId);
                     table.ForeignKey(
                         name: "FK_MovieUsers_Movies_MovieId",
                         column: x => x.MovieId,

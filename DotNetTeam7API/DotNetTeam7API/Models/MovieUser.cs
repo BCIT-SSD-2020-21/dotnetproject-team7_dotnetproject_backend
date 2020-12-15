@@ -20,7 +20,7 @@ namespace DotNetTeam7API.Models
         [Required]
         public string UserId { get; private set; }
 
-        public int Rating { get; private set; }
+        public int Rating { get;  set; }
         public string Review { get; private set; }
         public bool? Fav { get; private set; }
 

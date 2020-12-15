@@ -10,7 +10,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
-    <Folder Include="Areas\Identity\Data\Migrations\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 
@@ -36,11 +35,6 @@
     <Content Update="appsettingsCopy - Copy.Development.json">
       <DependentUpon>appsettingsCopy.Development.json</DependentUpon>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-    <Folder Include="Data\MovieMigrations\" />
   </ItemGroup>
 
 
