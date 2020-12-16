@@ -1,10 +1,8 @@
-# ⚔️ Deploy the Server Side App
+# ⚔️ 𝕯𝖊𝖕𝖑𝖔𝖞 𝖙𝖍𝖊 𝕾𝖊𝖗𝖛𝖊𝖗 𝕾𝖎𝖉𝖊 𝕬𝖕𝖕
 
-### We have built a Web Application using a Microsoft SQL Server Database, Identity Authentication, a .NET Core backend, and Web API with the front end views being rendered using React-JS technology.
+### We have built a Web Application using a Microsoft SQL Server Database, Identity Authentication, a .NET Core backend, and Web API with the front end views being rendered using React-JS technology.<br>In this article, we will demonstrate each step of deploying the backend application from github repository to Azure app service.
 
-    In this article, we will demonstrate each step of deploying the backend application from github repository to Azure app service.
-
-## Build the Web API on the Local Machine
+## ⚜️ Build the Web API on the Local Machine
 
 -   **Clone Github in Visual Studio 2019**\
     https://github.com/BCIT-SSD-2020-21/dotnetproject-team6_netproject-FRONTEND.git
@@ -45,3 +43,7 @@
         PM > Add-Migration InitialAuthSchema -Context AuthContext -OutputDir "Areas/Identity/Data/Migrations"
         PM > Update-Database -Context AuthContext
     ```
+
+## 🔱 Build the Web API on the Local Machine
+
+## 🔱 Build the Web API on the Local Machine🎼🍁
