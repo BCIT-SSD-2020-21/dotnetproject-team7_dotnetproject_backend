@@ -7,7 +7,7 @@ namespace DotNetTeam7API.ViewModels
 {
     public class MovieVM
     {
-
+        public int MovieId { get; set; }
         public string Backdrop_path { get; set; }
         public string First_air_date { get; set; }
         public string Name { get; set; }
