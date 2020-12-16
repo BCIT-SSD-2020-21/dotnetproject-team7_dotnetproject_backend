@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DotNetTeam7API.Data.Migrations
+namespace DotNetTeam7API.Data.MovieMigrations
 {
-    public partial class RefreshDb : Migration
+    public partial class RefreshMovieDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -69,6 +69,7 @@ namespace DotNetTeam7API.Data.Migrations
                 {
                     MovieUserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(nullable: false),
                     MovieId = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
                     Rating = table.Column<int>(nullable: false),
