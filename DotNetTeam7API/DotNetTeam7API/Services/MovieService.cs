@@ -24,7 +24,7 @@ namespace DotNetTeam7API.Services
         public List<BaseEntity> GetMovies(int? genreId, string searchTerm)
         {
             var movies = _movieRepo.GetAll();
-            //var genres = _genreRepo.GetAll();
+            //var genres = _genreRepo.GetAll(); 
 
             var ret = new List<BaseEntity>();
             if (searchTerm != null)
