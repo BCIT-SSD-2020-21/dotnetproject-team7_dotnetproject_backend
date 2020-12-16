@@ -12,11 +12,11 @@ namespace DotNetTeam7API.Services
     {
         private readonly IBaseRepository<Movie> _movieRepo;
         private readonly IBaseRepository<Genre> _genreRepo;
-        private readonly IQueryable<MovieUser> _movieUserRepo;
+        private readonly IBaseRepository<MovieUser> _movieUserRepo;
 
         public MovieService(IBaseRepository<Movie> movieRepo,
             IBaseRepository<Genre> genreRepo,
-            IQueryable<MovieUser> movieUserRepo)
+            IBaseRepository<MovieUser> movieUserRepo)
         {
             _movieRepo = movieRepo;
             _genreRepo = genreRepo;
@@ -113,7 +113,7 @@ namespace DotNetTeam7API.Services
 
         private double GetAvgRating(Movie movie)
         {
-            var movies = _movieUserRepo
+            var movies = _movieUserRepo.GetAll()
                 .Where(mu => mu.MovieId == movie.Id)
                 .Select(mu => mu.Rating)
                 .ToList();

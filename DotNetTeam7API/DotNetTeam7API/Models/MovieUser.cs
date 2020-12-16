@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DotNetTeam7API.Models
 {
-    public class MovieUser
+    public class MovieUser : BaseEntity
     {
         [Key]
         public int MovieUserId { get; set; }

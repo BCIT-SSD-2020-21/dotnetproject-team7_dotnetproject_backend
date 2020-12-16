@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetTeam7API.Areas.Identity.Data.Migrations
 {
     [DbContext(typeof(AuthContext))]
-    [Migration("20201215223538_RefreshAuthDb")]
+    [Migration("20201216033445_RefreshAuthDb")]
     partial class RefreshAuthDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

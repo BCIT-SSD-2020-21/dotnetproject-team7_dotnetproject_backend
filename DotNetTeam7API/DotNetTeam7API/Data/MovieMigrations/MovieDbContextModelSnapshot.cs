@@ -97,6 +97,9 @@ namespace DotNetTeam7API.Data.MovieMigrations
                     b.Property<bool?>("Fav")
                         .HasColumnType("bit");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 

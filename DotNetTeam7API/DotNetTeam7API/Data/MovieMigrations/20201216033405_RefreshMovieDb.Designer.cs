@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetTeam7API.Data.MovieMigrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20201215223321_RefreshMovieDb")]
+    [Migration("20201216033405_RefreshMovieDb")]
     partial class RefreshMovieDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -98,6 +98,9 @@ namespace DotNetTeam7API.Data.MovieMigrations
 
                     b.Property<bool?>("Fav")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
