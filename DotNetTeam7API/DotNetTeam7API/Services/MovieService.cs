@@ -22,10 +22,6 @@ namespace DotNetTeam7API.Services
             _genreRepo = genreRepo;
             _movieUserRepo = movieUserRepo;
         }
-        // this is for get all it can split to create any number of collections
-        // MovieIndexVM has List<MovieVm> and List<MovieDetailVm> and List<Genre>
-        // simple implementation is List<MovieVM>
-        // more complex is one beefy MovieIndexVM
         public List<MovieVM> GetMovies(int? genreId, string searchTerm)
         {
             var movies = _movieRepo.GetAll();
@@ -85,6 +81,7 @@ namespace DotNetTeam7API.Services
             
             return new MovieVM
             {
+                MovieId = movie_ret.Id,
                 Backdrop_path = movie_ret.Backdrop_path,
                 First_air_date = movie_ret.First_air_date,
                 Name = movie_ret.Name,
@@ -100,6 +97,7 @@ namespace DotNetTeam7API.Services
         {
             return movies.Select(m => new MovieVM
             {
+                MovieId = m.Id,
                 Backdrop_path = m.Backdrop_path,
                 First_air_date = m.First_air_date,
                 Name = m.Name,
