@@ -14,6 +14,7 @@ namespace DotNetTeam7API.Data
         {
 
             db.Database.ExecuteSqlRaw("DELETE FROM [MovieGenres]");
+            db.Database.ExecuteSqlRaw("DELETE FROM [MovieUsers]");
             db.Database.ExecuteSqlRaw("DELETE FROM [Genres]");
             db.Database.ExecuteSqlRaw("DELETE FROM [Movies]");
 

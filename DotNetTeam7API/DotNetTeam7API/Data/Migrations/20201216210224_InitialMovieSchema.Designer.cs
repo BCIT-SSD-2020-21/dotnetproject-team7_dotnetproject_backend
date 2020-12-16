@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DotNetTeam7API.Data.MovieMigrations
+namespace DotNetTeam7API.Data.Migrations
 {
     [DbContext(typeof(MovieDbContext))]
-    [Migration("20201216033405_RefreshMovieDb")]
-    partial class RefreshMovieDb
+    [Migration("20201216210224_InitialMovieSchema")]
+    partial class InitialMovieSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
