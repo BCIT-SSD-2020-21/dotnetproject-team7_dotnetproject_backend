@@ -99,6 +99,7 @@ namespace DotNetTeam7API.Controllers
                         var tokenString = GenerateJSONWebToken(user);
                         jsonResponse.token = tokenString;
                         jsonResponse.status = "OK";
+                        jsonResponse.userId = _userManager.GetUserId(User);
                         return Json(jsonResponse);
                     }
                 }
