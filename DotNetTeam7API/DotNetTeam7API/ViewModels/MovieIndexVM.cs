@@ -10,5 +10,5 @@ namespace DotNetTeam7API.ViewModels
     {
         public List<MovieVM> Movies { get; set; }
         public List<Genre> Genres { get; set; }
-}
+    }
 }

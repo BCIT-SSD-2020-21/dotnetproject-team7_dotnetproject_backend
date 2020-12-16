@@ -31,7 +31,7 @@ namespace DotNetTeam7API.Services
             var movies = _movieRepo.GetAll();
             //var genres = _genreRepo.GetAll(); 
 
-            var ret = new List<BaseEntity>();
+            var ret = new List<Movie>();
             if (searchTerm != null)
             {
                 if (genreId != null)
@@ -62,7 +62,12 @@ namespace DotNetTeam7API.Services
                 ret.AddRange(movies);
                 //ret.AddRange(genres);
             }
-            return ret;
+
+            var ret_vm = new List<MovieVM>();
+            if (ret.Count() > 0)
+                ret_vm = MapToMovieVM(ret);
+
+            return ret_vm;
         }
 
         public MovieVM GetById(int movieId)
@@ -77,7 +82,18 @@ namespace DotNetTeam7API.Services
                 .ThenInclude(mg => mg.Genre)
                 .Where(m => m.Id == movieId)
                 .FirstOrDefault();
-            return movie_ret;
+            
+            return new MovieVM
+            {
+                Backdrop_path = movie_ret.Backdrop_path,
+                First_air_date = movie_ret.First_air_date,
+                Name = movie_ret.Name,
+                Overview = movie_ret.Overview,
+                Poster_path = movie_ret.Poster_path,
+                // tQ: max for TMDB is 10, ours is 5, hence dividing by 2
+                TMDB_average = movie_ret.Vote_average / 2,
+                Korflix_average = GetAvgRating(movie_ret)
+            };
         }
 
         private List<MovieVM> MapToMovieVM(List<Movie> movies)
@@ -97,11 +113,19 @@ namespace DotNetTeam7API.Services
 
         private double GetAvgRating(Movie movie)
         {
-            var avg = _movieUserRepo
+            var movies = _movieUserRepo
                 .Where(mu => mu.MovieId == movie.Id)
                 .Select(mu => mu.Rating)
-                .ToList().Average();
-            return Math.Round(avg, 1);
+                .ToList();
+
+            if (movies.Count() > 0)
+            {     
+                return Math.Round(movies.Average(), 1);
+            } 
+            else
+            {
+                return 0;
+            }
         }
     }
 }
