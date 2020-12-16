@@ -17,11 +17,14 @@ namespace DotNetTeam7API.Services
             _movieRepo = movieRepo;
             _genreRepo = genreRepo;
         }
-
+        // this is for get all it can split to create any number of collections
+        // MovieIndexVM has List<MovieVm> and List<MovieDetailVm> and List<Genre>
+        // simple implementation is List<MovieVM>
+        // more complex is one beefy MovieIndexVM
         public List<BaseEntity> GetMovies(int? genreId, string searchTerm)
         {
             var movies = _movieRepo.GetAll();
-            var genres = _genreRepo.GetAll();
+            //var genres = _genreRepo.GetAll();
 
             var ret = new List<BaseEntity>();
             if (searchTerm != null)
@@ -32,6 +35,10 @@ namespace DotNetTeam7API.Services
                         movies.Include(m => m.MovieGenres)
                         .Where(m => m.MovieGenres.Any(mg => mg.GenreId == genreId)
                         && (m.Name.Contains(searchTerm) || m.Overview.Contains(searchTerm))));
+
+                    // map to VM here
+                    // if 1000 then it averages ratings of 1000 movies...
+                    // 2 movies then avg for movies 
                 }
                 else
                 {
@@ -48,7 +55,7 @@ namespace DotNetTeam7API.Services
             else
             {
                 ret.AddRange(movies);
-                ret.AddRange(genres);
+                //ret.AddRange(genres);
             }
             return ret;
         }
