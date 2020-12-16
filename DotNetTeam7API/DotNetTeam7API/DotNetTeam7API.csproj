@@ -6,6 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\**" />
+    <Content Remove="Data\Migrations\**" />
+    <EmbeddedResource Remove="Data\Migrations\**" />
+    <None Remove="Data\Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Data\Migrations\20201216210224_InitialMovieSchema.cs" />
+    <Compile Include="Data\Migrations\20201216210224_InitialMovieSchema.Designer.cs" />
+    <Compile Include="Data\Migrations\MovieDbContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
@@ -36,11 +49,6 @@
     <Content Update="appsettingsCopy - Copy.Development.json">
       <DependentUpon>appsettingsCopy.Development.json</DependentUpon>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-    <Folder Include="Data\MovieMigrations\" />
   </ItemGroup>
 
 

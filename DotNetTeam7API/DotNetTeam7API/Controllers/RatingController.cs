@@ -56,20 +56,20 @@ namespace DotNetTeam7API.Controllers
             // check null
             if (movieUser == null || String.IsNullOrEmpty(movieUser.UserId))
             {
-                return BadRequest();
+                return BadRequest("Requesting Body should not be empty and User Id has to be valid.");
             }
 
             // check null
             if (!(new List<int> { 1, 2, 3, 4, 5 }).Contains(movieUser.Rating) )
             {
-                return BadRequest();
+                return BadRequest("Rating has to be 1, 2, 3, 4, or 5.");
             }
 
             // validate movie id
             var movie = _db.Movies.Where(m => m.Id == movieUser.MovieId).FirstOrDefault();
             if (movie == null)
             {
-                return BadRequest();
+                return BadRequest("Could not find the requested movie.");
             }
 
             // validate use id
@@ -78,7 +78,7 @@ namespace DotNetTeam7API.Controllers
                                 .FirstOrDefault();
             if (user == null)
             {
-                return BadRequest();
+                return BadRequest("Could not find the user.");
             }
 
             var movieuser = _db.MovieUsers
@@ -88,7 +88,7 @@ namespace DotNetTeam7API.Controllers
             if (movieuser == null)
             {
                 // add movie-user
-                _db.MovieUsers.Add(movieUser);               
+                _db.MovieUsers.Add(movieUser);
             }
             else 
             {
@@ -97,6 +97,8 @@ namespace DotNetTeam7API.Controllers
             }
 
             _db.SaveChanges();
+
+            movieUser.Movie = null;
 
             return Ok(movieUser);
 

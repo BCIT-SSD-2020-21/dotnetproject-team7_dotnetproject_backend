@@ -25,7 +25,7 @@ namespace DotNetTeam7API.Models
         public bool? Fav { get; private set; }
 
         ////public virtual IdentityUser User { get; private set; }
-        public virtual Movie Movie { get; private set; }
+        public virtual Movie Movie { get;  set; }
 
         public MovieUser (
             int movieId,
