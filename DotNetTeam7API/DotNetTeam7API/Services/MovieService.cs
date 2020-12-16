@@ -1,5 +1,6 @@
 ﻿using DotNetTeam7API.Interfaces;
 using DotNetTeam7API.Models;
+using DotNetTeam7API.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
