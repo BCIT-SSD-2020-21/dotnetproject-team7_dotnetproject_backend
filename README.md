@@ -68,7 +68,7 @@
 
     #### Response ( 0 to many movies)
 
-    ![](https://i.imgur.com/kKd62Fy.png)
+    ![](https://i.imgur.com/dpw7hVM.png)
 
 -   ### Authention (Responding User Token and User Id for the front end to store in sessions)
 
@@ -84,20 +84,10 @@
 
 -   ### Rating
 
-    #### Requests
+    #### Requests and Response
 
-    -   Replace https://korflixapi.azurewebsites.net to [https://localhost:xxxx](https://localhost:xxxx) if running the app on a local machine.
+    -   ![](https://i.imgur.com/7Hm2Ieu.png)
 
-        -   https://korflixapi.azurewebsites.net/movie
-        -   https://korflixapi.azurewebsites.net/movie?search=Jumong
-        -   https://korflixapi.azurewebsites.net/movie?search=Goguryeo
-        -   https://korflixapi.azurewebsites.net/movie?genreId=18
-        -   https://korflixapi.azurewebsites.net/movie?genreId=18&search=Jumong
-        -   https://korflixapi.azurewebsites.net/movie?genreId=18&search=Goguryeo
-        -   https://korflixapi.azurewebsites.net/movie?genreid=18
+## 🎼 TMD API Key\
 
-    #### Response ( 0 to many movies)
-
-    ![](https://i.imgur.com/kKd62Fy.png)
-
-    🎼🍁
+    TMDB API Key '4d50e231ebab0b714167607ce53b71f17' is used to seed movies from TMDB API to our MS-SQL server. The key is regestered under https://www.themoviedb.org/ and is permitted under themoviedb agreement for fetching movie data for educational purpose.
