@@ -5,7 +5,7 @@
 ## ⚜️ Build the Korflix Web API on a Local Machine
 
 -   **Clone Github in Visual Studio 2019**\
-    https://github.com/BCIT-SSD-2020-21/dotnetproject-team6_netproject-FRONTEND.git
+    https://github.com/BCIT-SSD-2020-21/dotnetproject-team7_dotnetproject.git
 
 -   **install or update NuGet packages on Package Manager Console**
 
