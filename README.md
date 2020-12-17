@@ -86,6 +86,8 @@
 
     #### Requests and Response
 
+    Acceptable rating is 1, 2, 3, 4, or 5; otherwise, server will return error code and message.
+
     -   ![](https://i.imgur.com/7Hm2Ieu.png)
 
 ## 🎼 TMD API Key
