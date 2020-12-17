@@ -92,4 +92,5 @@
 
 ## 🎼 TMD API Key
 
-TMDB API Key '4d50e231ebab0b714167607ce53b71f17' is used to seed movies from TMDB API to a MS-SQL server. The key is regestered under https://www.themoviedb.org/ and is permitted under themoviedb agreement for fetching movie data for educational purpose.
+Please apply for an API key following the instructions found here:
+https://www.themoviedb.org/documentation/api
